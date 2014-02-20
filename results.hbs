@@ -1,0 +1,43 @@
+{{ log this}}
+<header class="webkite-results-header">
+  <div class="webkite-sort-area">{{>sorts this.sort}}</div>
+  <div class="webkite-filter-area">{{>filters this.filters}}</div>
+</header>
+
+<div class="webkite-results-container">
+  {{#each this.items}}
+  <div class="webkite-result-wrapper">
+    <img src="{{#facet name="Image"}}{{displayValue}}{{/facet}}"/>
+    <section class="webkite-result">
+      <h2>{{#facet name="First Name"}}{{displayValue}}{{/facet}} </h2>
+      <h2>{{#facet name="Last Name"}}{{displayValue}}{{/facet}}</h2>
+      <ul>
+    	  <li>
+          <a target="_blank" href="http://maps.google.com/?q={{#facet name='Address 1'}}{{displayValue}}{{/facet}} {{#facet name='City'}}{{displayValue}}{{/facet}} {{#facet name='State'}}{{displayValue}}{{/facet}} {{#facet name='Zip Code'}}{{displayValue}}{{/facet}} {{#facet name='Country'}}{{displayValue}}{{/facet}}">
+          {{#facet name="Address 1"}}{{displayValue}}<br>{{/facet}}
+          {{#facet name="Address 2"}}{{displayValue}}<br>{{/facet}}
+          {{#facet name="City"}}{{displayValue}}{{/facet}}, {{#facet name="State"}}{{displayValue}}{{/facet}}
+          {{#facet name="Zip Code"}}{{displayValue}}{{/facet}}
+          </a>
+        </li>
+        <li>
+          {{#facet name="Email"}}<a href="mailto:{{displayValue}}">{{displayValue}}</a>{{/facet}}
+        </li>
+        <li>
+          {{#facet name="Phone Number"}}<a href="tel:{{displayValue}}">{{displayValue}}</a>{{/facet}}
+        </li>
+    	</ul>
+    	
+    	<a href="#{{this.id}}" data-id={{this.id}} class="webkite-toggle-item webkite-toggle {{this.id}}-toggler {{#if showDetails}}webkite-hide{{/if}} more-button" data-target=".{{this.id}}-toggler" data-animate="200ms">more</a>
+  	<a href="#{{this.id}}" data-id={{this.id}} class="webkite-toggle-item webkite-toggle {{this.id}}-toggler {{#unless showDetails}}webkite-hide{{/unless}} less-button" data-target=".{{this.id}}-toggler" data-animate="200ms">less</a>
+    </section>
+  </div><!-- webkite-result-wrapper -->
+  {{/each}}
+  <div class="webkite-result-wrapper placeholder"></div>
+  <div class="webkite-result-wrapper placeholder only-lg"></div>
+</div><!-- webkite-results-container -->
+
+<footer class="webkite-results-footer">
+  <div class="webkite-branding-area"><a href="http://webkite.com"></a></div>
+  <div class="webkite-pagination-area">{{>paginator pagination}}</div>
+</footer>
