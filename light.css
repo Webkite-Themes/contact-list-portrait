@@ -54,13 +54,14 @@
 #webkite-results h2 {
   word-wrap: break-word;
   -webkit-hyphens: auto;
+  -webkit-hyphenate-character: inherit;
   -moz-hyphens: auto;
   -ms-hyphens: auto;
+  hyphens: auto;
   color: rgba(0, 0, 0, 0.7);
   display: inline-block;
   font: 700 1.125em/1 "Open Sans";
-  margin: 0;
-  margin-bottom: 1.25em; }
+  margin: 0; }
 #webkite-results p, #webkite-results li {
   color: rgba(0, 0, 0, 0.6); }
 
@@ -206,7 +207,12 @@
     float: left;
     font-size: 0.875em;
     line-height: 1em;
-    padding: 0.0625em 0.3125em; }
+    overflow: hidden;
+    max-width: 6.25em;
+    padding: 0.0625em 0.3125em;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
     #webkite-results a.webkite-remove-filter:hover {
       text-decoration: line-through; }
   #webkite-results .filter-group-0 a.webkite-remove-filter {
@@ -352,13 +358,17 @@
   margin-top: -0.3125em;
   overflow: hidden;
   padding: 0.625em; }
+  #webkite-results .webkite-result ul {
+    margin-top: 1.25em; }
   #webkite-results .webkite-result li {
-    word-wrap: break-word;
-    -webkit-hyphens: auto;
-    -moz-hyphens: auto;
-    -ms-hyphens: auto;
-    font-size: .875em;
-    text-align: left; }
+    text-align: left;
+    margin-bottom: 0.625em; }
+    #webkite-results .webkite-result li a.webkite-email {
+      display: inline-block;
+      font-size: .875em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%; }
   #webkite-results .webkite-result a.more-button, #webkite-results .webkite-result a.less-button {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;

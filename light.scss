@@ -37,8 +37,10 @@ $mainGutter: 1.25em;
 @mixin hyphenGreat{
   word-wrap: break-word;
   -webkit-hyphens: auto;
+  -webkit-hyphenate-character: inherit;
   -moz-hyphens: auto;
   -ms-hyphens: auto;
+  hyphens: auto;
   }
 @mixin breakThat{
   &:after{
@@ -81,7 +83,6 @@ $mainGutter: 1.25em;
     display: inline-block;
     font: 700 1.125em/1 "Open Sans";
     margin: 0;
-    margin-bottom: $mainGutter;
     }
   p, li{
     color: $lightOpacity;
@@ -216,7 +217,12 @@ $mainGutter: 1.25em;
     float:left;
     font-size: 0.875em;
     line-height: 1em;
+    overflow: hidden;
+    max-width: 6.25em;
     padding: $mainGutter/20 $mainGutter/4;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     &:hover{text-decoration: line-through;}
     }
   .filter-group-0 a.webkite-remove-filter{
@@ -355,10 +361,19 @@ $mainGutter: 1.25em;
     margin-top: -$mainGutter/4;
     overflow: hidden;
     padding: $mainGutter/2;
+    ul{
+      margin-top: $mainGutter;
+      }
     li{
-      @include hyphenGreat;
-      font-size: .875em;
       text-align: left;
+      margin-bottom: $mainGutter/2;
+      a.webkite-email{
+        display: inline-block;
+        font-size: .875em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+        }
       }
     a.more-button, a.less-button{
       @include boxedUp;
