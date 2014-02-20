@@ -1,0 +1,7 @@
+<select class="webkite-sort">
+  {{! log currentSort}}
+  <option {{#unless currentSort}}selected=""{{/unless}}value="" role="label" class="first">no sort <!-- <b class="icon">&#9662</b> --></option>
+  {{#each sortableFacets}}
+  <option value="{{this}}" {{#if (equals this ../currentSort)}}selected=""{{/if}}>{{this}}</option>
+  {{/each}}
+</select>
