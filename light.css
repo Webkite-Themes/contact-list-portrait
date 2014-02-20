@@ -325,6 +325,8 @@
   margin-bottom: 1.25em;
   vertical-align: top;
   width: 31%; }
+  #webkite-results .webkite-result-wrapper.placeholder.only-lg {
+    display: none; }
   #webkite-results .webkite-result-wrapper img {
     max-width: 100%;
     height: auto;

@@ -333,6 +333,7 @@ $mainGutter: 1.25em;
     margin-bottom: $mainGutter;
     vertical-align: top;
     width: 31%;
+    &.placeholder.only-lg{display: none;}
     img {
       max-width: 100%;
       height: auto;
