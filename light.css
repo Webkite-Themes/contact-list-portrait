@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans|300+400+400i+700+700i);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700,700i);
 /* RESET */
 #webkite-results {
   /* HTML5 display-role reset for older browsers */ }
@@ -54,7 +54,6 @@
 #webkite-results h2 {
   word-wrap: break-word;
   -webkit-hyphens: auto;
-  -webkit-hyphenate-character: inherit;
   -moz-hyphens: auto;
   -ms-hyphens: auto;
   hyphens: auto;
@@ -105,17 +104,17 @@
   color: rgba(0, 0, 0, 0.6);
   display: inline-block;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  font-size: 0.875em;
-  font-weight: 700;
+  font: 700 .875em/1.3 "Open Sans";
   margin: 0;
-  padding: 0.3125em;
-  height: 2em;
-  line-height: 1.3; }
+  padding: 0.3125em 0.625em;
+  height: 2em; }
   #webkite-results .webkite-sort-area > a.webkite-toggle i {
-    background: url("angle-light.svg") no-repeat;
+    background: url("angle-light.png") center center no-repeat;
     display: inline-block;
     height: 10px;
-    width: 7px; }
+    margin-left: 0.625em;
+    pointer-events: none;
+    width: 10px; }
 #webkite-results .webkite-sort-area {
   position: relative;
   z-index: 3; }
@@ -160,9 +159,10 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     width: 100%;
-    position: relative;
-    padding-left: 3.5em;
-    margin-left: -3.5em; }
+    position: relative; }
+  #webkite-results .webkite-sort-area + .webkite-filter-area {
+    padding-left: 4.5em;
+    margin-left: -4.5em; }
   #webkite-results .webkite-applied-filters {
     position: relative; }
   #webkite-results .current-filters {
@@ -179,7 +179,7 @@
     display: inline-block;
     height: 1.75em;
     padding: 0.3125em;
-    padding-left: 4.2em;
+    padding-left: 5.2em;
     width: 100%;
     text-align: end;
     /* and & or */ }
@@ -208,14 +208,16 @@
     color: rgba(0, 0, 0, 0.6);
     font-size: 0.875em;
     font-weight: 700;
-    line-height: 1.9em;
-    padding: 0 0.3125em 0 0.3125em;
+    line-height: 2em;
+    padding: 0 0.625em;
     height: 2em; }
     #webkite-results .webkite-applied-filters > a i {
-      background: url("plus-light.svg") no-repeat;
+      background: url("plus-light.png") no-repeat;
       display: inline-block;
-      height: 10px;
-      width: 10px; }
+      height: 12px;
+      width: 12px;
+      margin-left: 0.625em;
+      pointer-events: none; }
   #webkite-results .webkite-applied-filters > a b {
     font-size: .8em;
     opacity: .5;
@@ -249,7 +251,13 @@
   #webkite-results .filter-group-4 a.webkite-remove-filter {
     background: #6f7ca8; }
   #webkite-results a.webkite-clear-filters {
-    display: inline-block; }
+    background: url("clear-all-icon.png") center top no-repeat;
+    display: inline-block;
+    height: 18px;
+    width: 18px;
+    margin-top: -1px; }
+    #webkite-results a.webkite-clear-filters:active {
+      background-position-y: -18px; }
 
 /**************************************** FILTER DROPDOWN */
 #webkite-results .filter-menu {
@@ -281,10 +289,15 @@
   #webkite-results .filter-menu li a:hover {
     background: #1b9cd2;
     color: white; }
-  #webkite-results .filter-menu li a span {
-    color: rgba(0, 0, 0, 0.2);
-    float: right;
-    padding-left: 0.3125em; }
+#webkite-results .filter-menu > li > a {
+  padding-right: 1.25em;
+  position: relative; }
+  #webkite-results .filter-menu > li > a:after {
+    content: "\203A";
+    color: rgba(0, 0, 0, 0.6);
+    opacity: .5;
+    position: absolute;
+    right: 0.41667em; }
 #webkite-results .filter-menu-child {
   -webkit-border-radius: 0.375em;
   -moz-border-radius: 0.375em;
@@ -379,18 +392,25 @@
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-top: none;
   margin-top: -0.3125em;
-  overflow: hidden;
   padding: 0.625em; }
   #webkite-results .webkite-result ul {
     margin-top: 1.25em; }
   #webkite-results .webkite-result li {
     text-align: left;
     margin-bottom: 0.625em; }
-    #webkite-results .webkite-result li a.webkite-email {
+    #webkite-results .webkite-result li a.webkite-address span {
       display: inline-block;
-      font-size: .875em;
+      max-width: 100%;
       overflow: hidden;
       text-overflow: ellipsis;
+      white-space: nowrap; }
+    #webkite-results .webkite-result li a.webkite-email {
+      display: inline-block;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: .875em;
       width: 100%; }
   #webkite-results .webkite-result a.more-button, #webkite-results .webkite-result a.less-button {
     -webkit-box-sizing: border-box;
@@ -417,16 +437,20 @@
     background: rgba(0, 0, 0, 0.6); }
     #webkite-results .webkite-result a.less-button:hover {
       background: rgba(0, 0, 0, 0.6); }
+  #webkite-results .webkite-result footer.breaking {
+    clear: both; }
 
 /************************************** ELEMENT QUERIES */
 #webkite-results.xs .webkite-block, #webkite-results.xs .webkite-title-area, #webkite-results.xs .webkite-branding-area, #webkite-results.xs .webkite-pagination-area {
   width: 100%;
   padding-right: 0; }
-#webkite-results.xs .webkite-filter-area, #webkite-results.xs .webkite-sort-area, #webkite-results.xs .webkite-sort-area > a.webkite-toggle {
+#webkite-results.xs .webkite-filter-area, #webkite-results.xs .webkite-sort-area, #webkite-results.xs .webkite-sort-area > a {
   width: 100%; }
 #webkite-results.xs .webkite-sort-area > a.webkite-toggle i {
   float: right;
   margin-top: 0.3125em; }
+#webkite-results.xs .sort-menu {
+  width: 95%; }
 #webkite-results.xs .webkite-filter-area {
   margin-top: 1.25em;
   margin-left: 0;
@@ -440,8 +464,13 @@
 #webkite-results.xs .webkite-results-footer {
   height: 6.876em; }
 
-#webkite-results.sm .webkite-filter-area, #webkite-results.sm .webkite-sort-area, #webkite-results.sm select.webkite-sort {
+#webkite-results.sm .webkite-filter-area, #webkite-results.sm .webkite-sort-area, #webkite-results.sm .webkite-sort-area > a {
   width: 100%; }
+#webkite-results.sm .webkite-sort-area > a.webkite-toggle i {
+  float: right;
+  margin-top: 0.3125em; }
+#webkite-results.sm .sort-menu {
+  width: 95%; }
 #webkite-results.sm .webkite-filter-area {
   margin-top: 1.25em;
   margin-left: 0;
