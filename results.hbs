@@ -13,11 +13,11 @@
       <h2>{{#facet name="Last Name"}}{{displayValue}}{{/facet}}</h2>
       <ul>
     	  <li>
-          <a target="_blank" href="http://maps.google.com/?q={{#facet name='Address 1'}}{{displayValue}}{{/facet}} {{#facet name='City'}}{{displayValue}}{{/facet}} {{#facet name='State'}}{{displayValue}}{{/facet}} {{#facet name='Zip Code'}}{{displayValue}}{{/facet}} {{#facet name='Country'}}{{displayValue}}{{/facet}}">
-          {{#facet name="Address 1"}}{{displayValue}}<br>{{/facet}}
-          {{#facet name="Address 2"}}{{displayValue}}<br>{{/facet}}
-          {{#facet name="City"}}{{displayValue}}{{/facet}}, {{#facet name="State"}}{{displayValue}}{{/facet}}
-          {{#facet name="Zip Code"}}{{displayValue}}{{/facet}}
+          <a class="webkite-address" target="_blank" href="http://maps.google.com/?q={{#facet name='Address 1'}}{{displayValue}}{{/facet}} {{#facet name='City'}}{{displayValue}}{{/facet}} {{#facet name='State'}}{{displayValue}}{{/facet}} {{#facet name='Zip Code'}}{{displayValue}}{{/facet}} {{#facet name='Country'}}{{displayValue}}{{/facet}}">
+          {{#facet name="Address 1"}}<span>{{displayValue}}</span>{{/facet}}
+          {{#facet name="Address 2"}}<span>{{displayValue}}</span>{{/facet}}
+          {{#facet name="City"}}<span>{{displayValue}}{{/facet}}, {{#facet name="State"}}{{displayValue}}{{/facet}}
+          {{#facet name="Zip Code"}}{{displayValue}}{{/facet}}</span>
           </a>
         </li>
         <li>
@@ -30,6 +30,7 @@
     	
     	<a href="#{{this.id}}" data-id={{this.id}} class="webkite-toggle-item webkite-toggle {{this.id}}-toggler {{#if showDetails}}webkite-hide{{/if}} more-button" data-target=".{{this.id}}-toggler" data-animate="200ms">more</a>
   	<a href="#{{this.id}}" data-id={{this.id}} class="webkite-toggle-item webkite-toggle {{this.id}}-toggler {{#unless showDetails}}webkite-hide{{/unless}} less-button" data-target=".{{this.id}}-toggler" data-animate="200ms">less</a>
+  	<footer class="breaking"></footer>
     </section>
   </div><!-- webkite-result-wrapper -->
   {{/each}}
