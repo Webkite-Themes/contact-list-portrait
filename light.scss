@@ -456,6 +456,15 @@ $mainGutter: 1.25em;
     
   }
   
+/*************************************** DETAILS MODAL */
+#webkite-results{
+  
+  .webkite-result-modal{
+    position: absolute;
+    }
+  
+  }
+  
 /************************************** ELEMENT QUERIES */
 #webkite-results.xs{
   .webkite-block,.webkite-title-area, .webkite-branding-area, .webkite-pagination-area{

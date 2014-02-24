@@ -1,0 +1,97 @@
+<div class="webkite-modal-block-forty">
+  <img src="{{#facet name="Image"}}{{displayValue}}{{/facet}}"/>
+  <h2>{{#facet name="First Name"}}{{displayValue}}{{/facet}} </h2>
+  <h2>{{#facet name="Last Name"}}{{displayValue}}{{/facet}}</h2>
+  <ul>
+	  <li>
+	    <b>address</b>
+      <a target="_blank" href="http://maps.google.com/?q={{#facet name='Address 1'}}{{displayValue}}{{/facet}} {{#facet name='City'}}{{displayValue}}{{/facet}} {{#facet name='State'}}{{displayValue}}{{/facet}} {{#facet name='Zip Code'}}{{displayValue}}{{/facet}} {{#facet name='Country'}}{{displayValue}}{{/facet}}">
+      {{#facet name="Address 1"}}{{displayValue}}<br>{{/facet}}
+      {{#facet name="Address 2"}}{{displayValue}}<br>{{/facet}}
+      {{#facet name="City"}}{{displayValue}}{{/facet}}, {{#facet name="State"}}{{displayValue}}{{/facet}}
+      {{#facet name="Zip Code"}}{{displayValue}}{{/facet}}
+      </a>
+    </li>
+    <li>
+      <b>email</b>
+      {{#facet name="Email"}}
+      <a href="mailto:{{displayValue}}">{{displayValue}}</a>
+      {{/facet}}
+    </li>
+    <li>
+      <b>phone number</b>
+      {{#facet name="Phone Number"}}
+      <a href="tel:{{displayValue}}">{{displayValue}}</a>
+      {{/facet}}
+    </li>
+	</ul>
+</div><!-- webkite-modal-block-forty -->
+<div class="webkite-moal-block-sixty">
+  <ul>
+      <li>
+        <b>website</b>
+        {{#facet name="Website"}}
+        <a href="{{displayValue}}">{{displayValue}}</a>
+        {{/facet}}
+      </li>
+      <li>
+        <b>twitter</b>
+        {{#facet name="Twitter"}}
+        <a href="https://twitter.com/{{displayValue}}">{{displayValue}}</a>
+        {{/facet}}
+      </li>
+      <li>
+        <b>university</b>
+        {{#facet name="University"}}
+        {{#if filterable}}
+        <a href="#" class="webkite-add-filter" data-facet="{{text}}" data-operator="is">{{displayValue}}</a>
+        {{else}}
+        {{displayValue}}
+        {{/if}}
+        {{/facet}}
+      </li>
+      <li>
+        <b>degree</b>
+        {{#facet name="Degree"}}
+        {{#if filterable}}
+        <a href="#" class="webkite-add-filter" data-facet="{{text}}" data-operator="is">{{displayValue}}</a>
+        {{else}}
+        {{displayValue}}
+        {{/if}}
+        {{/facet}}
+      </li>
+      <li>
+        <b>year of graduation</b>
+        {{#facet name="Year of Graduation"}}
+        {{displayValue}}
+        {{/facet}}
+      </li>
+      <li>
+        <b>employer</b>
+        {{#facet name="Employer"}}
+        {{#if filterable}}
+        <a href="#" class="webkite-add-filter" data-facet="{{text}}" data-operator="is">{{displayValue}}</a>
+        {{else}}
+        {{displayValue}}
+        {{/if}}
+        {{/facet}}
+      </li>
+      <li>
+        <b>department</b>
+        {{#facet name="Department"}}
+        {{#if filterable}}
+        <a href="#" class="webkite-add-filter" data-facet="{{text}}" data-operator="is">{{displayValue}}</a>
+        {{else}}
+        {{displayValue}}
+        {{/if}}
+        {{/facet}}
+      </li>
+      <li>
+        <b>job title</b>
+        {{#facet name="Job Title"}}
+        {{displayValue}}
+        {{/facet}}
+      </li>
+    </ul>
+    <a href="#{{this.id}}" data-id={{this.id}} class="webkite-toggle-item webkite-toggle {{this.id}}-toggler {{#unless showDetails}}webkite-hide{{/unless}} less-button" data-target=".{{this.id}}-toggler" data-animate="200ms">less</a>
+</div><!-- webkite-moal-block-sixty -->
