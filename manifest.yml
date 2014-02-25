@@ -18,3 +18,4 @@ partials:
   - paginator.handlebars.js
   - filters.handlebars.js
   - sorts.handlebars.js
+  - results-modal.handlebars.js

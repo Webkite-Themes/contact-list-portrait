@@ -5,8 +5,11 @@
 </header>
 
 <div class="webkite-results-container">
+{{#each this.items}}
+<div id="{{this.id}}" class="webkite-item-details">{{>results-modal}}</div>
+{{/each}}
+<div class="webkite-result-modal-blocking"></div>
   {{#each this.items}}
-  <div id="{{this.id}}" class="webkite-result-modal webkite-item-details">{{>results-modal}}</div>
   <div class="webkite-result-wrapper">
     <img src="{{#facet name="Image"}}{{displayValue}}{{/facet}}"/>
     <section class="webkite-result">
@@ -29,7 +32,8 @@
         </li>
     	</ul>
     	
-    	<a href="#{{this.id}}" data-id={{this.id}} class="webkite-toggle-item webkite-toggle {{this.id}}-toggler {{#if showDetails}}webkite-hide{{/if}} more-button" data-target=".{{this.id}}-toggler" data-animate="200ms">more</a>
+    	<a href="#{{this.id}}" data-id={{this.id}} class="webkite-toggle-item webkite-toggle {{this.id}}-toggler {{#if showDetails}}webkite-hide{{/if}} more-button" data-target=".{{this.id}}-toggler" data-animate="200ms" data-speed="100ms">more</a>
+    	<a href="#{{this.id}}" data-id={{this.id}} class="webkite-toggle-item webkite-toggle {{this.id}}-toggler {{#unless showDetails}}webkite-hide{{/unless}} less-button" data-target=".{{this.id}}-toggler" data-animate="200ms" data-speed="100ms">less</a>
   	<footer class="breaking"></footer>
     </section>
   </div><!-- webkite-result-wrapper -->

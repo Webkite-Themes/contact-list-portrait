@@ -1,4 +1,5 @@
-<div class="webkite-modal-block-forty">
+<div class="webkite-result-modal">
+  <div class="webkite-modal-block-forty">
   <img src="{{#facet name="Image"}}{{displayValue}}{{/facet}}"/>
   <h2>{{#facet name="First Name"}}{{displayValue}}{{/facet}} </h2>
   <h2>{{#facet name="Last Name"}}{{displayValue}}{{/facet}}</h2>
@@ -26,7 +27,7 @@
     </li>
 	</ul>
 </div><!-- webkite-modal-block-forty -->
-<div class="webkite-moal-block-sixty">
+  <div class="webkite-modal-block-sixty">
   <ul>
       <li>
         <b>website</b>
@@ -93,5 +94,6 @@
         {{/facet}}
       </li>
     </ul>
-    <a href="#{{this.id}}" data-id={{this.id}} class="webkite-toggle-item webkite-toggle {{this.id}}-toggler {{#unless showDetails}}webkite-hide{{/unless}} less-button" data-target=".{{this.id}}-toggler" data-animate="200ms">less</a>
+    <a href="#{{this.id}}" data-id={{this.id}} class="webkite-toggle-item webkite-toggle {{this.id}}-toggler {{#unless showDetails}}webkite-hide{{/unless}} less-button" data-target=".{{this.id}}-toggler" data-animate="200ms" data-speed="100ms">less</a>
 </div><!-- webkite-moal-block-sixty -->
+</div><!-- webkite-result-modal -->

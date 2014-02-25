@@ -72,7 +72,7 @@ $mainGutter: 1.25em;
   @include boxedUp;
   font-family:"Open Sans";
   font-size: 16px;
-  max-width: 43.750em;
+  max-width: 43.75em;
   margin: 0 auto;
   padding: $mainGutter;
   a{color:$linkColor;
@@ -385,6 +385,7 @@ $mainGutter: 1.25em;
   
   .webkite-results-container{
     @include breakThat;
+    position: relative;
     text-align: justify;
     }
   .webkite-result-wrapper{
@@ -458,9 +459,72 @@ $mainGutter: 1.25em;
   
 /*************************************** DETAILS MODAL */
 #webkite-results{
-  
+  .webkite-item-details{
+    @include boxedUp;
+    margin-left: -$mainGutter;
+    max-width: 43.750em;
+    padding: $mainGutter;
+    position: fixed;
+    top: 0;
+    z-index: 3;
+    h2{font: 700 1.5em/1 "Open Sans";}
+    }
   .webkite-result-modal{
+    @include boxedUp;
+    @include roundedUp (.625em);
+    @include shadowHere;
+    background: $backgroundColor;
+    padding: $mainGutter;
+    text-align: justify;
+    a.less-button{
+      @include boxedUp;
+      @include roundedUp(.188em);
+      color: white;
+      display: inline-block;
+      float: right;
+      font: 400 .75em/1 "Open Sans";
+      padding: $mainGutter/4 $mainGutter/2;
+      margin-top: $mainGutter;
+      text-align: center;
+      width: 3.750em;
+      background: $lightOpacity;
+      &:hover{background: $lightOpacity*2;}
+      }
+    }
+  .webkite-modal-block-forty, .webkite-modal-block-sixty{
+    @include boxedUp;
+    display: inline-block;
+    vertical-align: top;
+    h2{}
+    li{
+      padding-bottom: $mainGutter/2;
+      text-align: left;
+      a, b{display: inline-block;width: 100%;}
+      b{font-weight: 700;}
+      }
+    }
+  .webkite-modal-block-forty{
+    width: 39%;
+    img{
+      max-width: 100%;
+      height: auto;
+      margin-bottom: $mainGutter;
+      }
+    }
+  .webkite-modal-block-sixty{
+    width: 59%;
+    padding-left: $mainGutter;
+    }
+    
+  /* blocking */
+  .webkite-item-details:after{
+    display: block;
+    background: rgba(255,255,255,.2);
     position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     }
   
   }
@@ -493,7 +557,12 @@ $mainGutter: 1.25em;
   .webkite-results-footer{
     height: 2.813em*2+$mainGutter;
     }
-  }
+  .webkite-item-details{padding: $mainGutter/2;
+    .webkite-modal-block-forty, .webkite-modal-block-sixty{width: 100%; padding: 0;}
+    li{b, a, span{width: 100%;}}   
+    }
+    
+  }//end xs
   
 #webkite-results.sm{
   .webkite-filter-area, .webkite-sort-area, .webkite-sort-area > a{
@@ -509,4 +578,22 @@ $mainGutter: 1.25em;
     padding-left: 0;
     }
   .webkite-result-wrapper{width: 48%;}
+  .webkite-item-details{
+    margin: 0;
+    padding: $mainGutter/2;
+    left: 0; right: 0; bottom: 0;
+    .webkite-result-modal{
+      overflow: scroll;
+      }
+    .webkite-modal-block-forty, .webkite-modal-block-sixty{width: 100%; padding: 0;}
+     li{
+        b{width: 39%; vertical-align:top;}
+        a, span{width:59%;}
+        }  
+    }
+    
+  }//end sm
+  
+#webkite-results.lg, #webkite-results.xl{
+  .webkite-result-wrapper{width: 23%;}
   }
