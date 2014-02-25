@@ -433,7 +433,7 @@
     padding: 0.3125em 0.625em;
     margin-top: 1.25em;
     text-align: center;
-    width: 3.750em; }
+    width: 4.375em; }
   #webkite-results .webkite-result a.more-button {
     background: #1b9cd2; }
     #webkite-results .webkite-result a.more-button:hover {
@@ -491,7 +491,7 @@
       padding: 0.3125em 0.625em;
       margin-top: 1.25em;
       text-align: center;
-      width: 3.750em;
+      width: 4.375em;
       background: rgba(0, 0, 0, 0.6); }
       #webkite-results .webkite-result-modal a.less-button:hover {
         background: rgba(0, 0, 0, 0.6); }
