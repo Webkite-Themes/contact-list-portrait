@@ -518,7 +518,7 @@
   #webkite-results .webkite-modal-block-sixty {
     width: 59%;
     padding-left: 1.25em; }
-  #webkite-results .webkite-item-details:after {
+  #webkite-results .webkite-modal-blocking {
     display: block;
     background: rgba(255, 255, 255, 0.2);
     position: absolute;
@@ -551,7 +551,13 @@
 #webkite-results.xs .webkite-results-footer {
   height: 6.876em; }
 #webkite-results.xs .webkite-item-details {
-  padding: 0.625em; }
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  padding: 0.625em;
+  overflow: scroll; }
   #webkite-results.xs .webkite-item-details .webkite-modal-block-forty, #webkite-results.xs .webkite-item-details .webkite-modal-block-sixty {
     width: 100%;
     padding: 0; }
@@ -572,13 +578,13 @@
 #webkite-results.sm .webkite-result-wrapper {
   width: 48%; }
 #webkite-results.sm .webkite-item-details {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   margin: 0;
   padding: 0.625em;
-  left: 0;
-  right: 0;
-  bottom: 0; }
-  #webkite-results.sm .webkite-item-details .webkite-result-modal {
-    overflow: scroll; }
+  overflow: scroll; }
   #webkite-results.sm .webkite-item-details .webkite-modal-block-forty, #webkite-results.sm .webkite-item-details .webkite-modal-block-sixty {
     width: 100%;
     padding: 0; }
