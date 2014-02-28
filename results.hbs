@@ -10,16 +10,16 @@
 {{/each}}
   {{#each this.items}}
   <div class="webkite-result-wrapper">
-    <img src="{{#facet name="Image"}}{{displayValue}}{{/facet}}"/>
+    {{#facet name="Image"}}<img src="{{displayValue}}"/>{{/facet}}
     <section class="webkite-result">
-      <h2>{{#facet name="First Name"}}{{displayValue}}{{/facet}} </h2>
-      <h2>{{#facet name="Last Name"}}{{displayValue}}{{/facet}}</h2>
+      {{#facet name="First Name"}}<h2>{{displayValue}} </h2>{{/facet}}
+      {{#facet name="Last Name"}}<h2>{{displayValue}}</h2>{{/facet}}
       <ul>
     	  <li>
           <a class="webkite-address" target="_blank" href="http://maps.google.com/?q={{#facet name='Address 1'}}{{displayValue}}{{/facet}} {{#facet name='City'}}{{displayValue}}{{/facet}} {{#facet name='State'}}{{displayValue}}{{/facet}} {{#facet name='Zip Code'}}{{displayValue}}{{/facet}} {{#facet name='Country'}}{{displayValue}}{{/facet}}">
           {{#facet name="Address 1"}}<span>{{displayValue}}</span>{{/facet}}
           {{#facet name="Address 2"}}<span>{{displayValue}}</span>{{/facet}}
-          {{#facet name="City"}}<span>{{displayValue}}{{/facet}}, {{#facet name="State"}}{{displayValue}}{{/facet}}
+          {{#facet name="City"}}<span><span class="city">{{displayValue}}</span>{{/facet}}<span class="state">{{#facet name="State"}}{{displayValue}}</span>{{/facet}}
           {{#facet name="Zip Code"}}{{displayValue}}{{/facet}}</span>
           </a>
         </li>
