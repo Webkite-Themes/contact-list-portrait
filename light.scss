@@ -213,17 +213,17 @@ $mainGutter: 1.25em;
     border: 1px solid $lighterOpacity;
     display: inline-block;
     height: 1.75em;
-    padding: $mainGutter/4;
-    padding-left: 5.2em;
+    overflow: hidden;
+    padding: $mainGutter/4 1.563em $mainGutter/4 5.2em;
     width: 100%;
-    text-align: right;
+    text-align: left;
     /* and & or */
     span{
       color: $lightOpacity;
-      float: left;
       font-size: .875em;
       line-height: 1.2em;
       margin: 0 $mainGutter/4;
+      vertical-align: top;
       }
     }
   .webkite-applied-filters > a{
@@ -251,26 +251,21 @@ $mainGutter: 1.25em;
       pointer-events: none;
       }
     } 
-  .webkite-applied-filters > a b{
-    font-size: .8em;
-    opacity: .5;
-    pointer-events: none;
-    }
   /* tokens */
   a.webkite-remove-filter{
+    @include ellipsisThis;
     @include roundedUp (.188em);
     color: white;
-    float:left;
     font-size: 0.875em;
     line-height: 1em;
-    overflow: hidden;
     max-width: 6.25em;
     padding: $mainGutter/20 $mainGutter/4;
     text-align: left;
-    text-overflow: ellipsis;
-    white-space: nowrap;
     word-wrap: normal;
     &:hover{text-decoration: line-through;}
+    }
+  [class^="filter-group"]{
+    display: inline-block;
     }
   .filter-group-0 a.webkite-remove-filter{
     background: $tokenFirst;
@@ -294,6 +289,8 @@ $mainGutter: 1.25em;
     height: 18px;
     width: 18px;
     margin-top: -1px;
+    position: absolute;
+    right: .325em;
     &:active{
       background-position-y: -18px;
       }
@@ -419,13 +416,12 @@ $mainGutter: 1.25em;
   
 /************************************ PORTRAIT RESULTS */
 #webkite-results{
-  
+ 
   .webkite-result{
     @include boxedUp;
-    @include roundedUp(0 0 0.188em 0.188em);
+    @include roundedUp(.188em);
     background: $lightestOpacity;
-    border: 1px solid $lighterOpacity;
-    border-top: none;
+    border: 1px solid $lighterOpacity;  
     margin-top: -$mainGutter/4;
     padding: $mainGutter/2;
     ul{
@@ -436,7 +432,9 @@ $mainGutter: 1.25em;
       margin-bottom: $mainGutter/2;
       a.webkite-address span{
         @include ellipsisThis;
+        &.city, &.state{display: inline;}
         }
+      .city + .state:before{content: ", ";}
       a.webkite-email{
         @include ellipsisThis;
         font-size: .875em;
@@ -467,6 +465,10 @@ $mainGutter: 1.25em;
       clear: both;
       }
     }
+  img + .webkite-result{
+    @include roundedUp(0 0 .188em .188em);
+    border-top: none;
+    } 
     
   }
   
@@ -489,6 +491,12 @@ $mainGutter: 1.25em;
     background: $backgroundColor;
     padding: $mainGutter;
     text-align: justify;
+   a.webkite-address span{
+      display: inline-block;
+      max-width: 100%;
+      &.city, &.state{display: inline;}
+      }
+    .city + .state:before{content: ", ";}
     a.less-button{
       @include boxedUp;
       @include roundedUp(.188em);
@@ -532,7 +540,7 @@ $mainGutter: 1.25em;
   /* blocking */
   .webkite-modal-blocking{
     display: block;
-    background: rgba(255,255,255,.2);
+    background: rgba(255,255,255,.8);
     position: absolute;
     top: 0;
     left: 0;
