@@ -12,6 +12,7 @@
       {{/each}}
     </ul>
   <div class="current-filters">
+  <a href="#" class="webkite-clear-filters"></a>
   {{#each filterGroups}}
   <div class="filter-group-{{@index}}">
     {{#each filters}}
@@ -20,6 +21,5 @@
   </div>
   {{#unless @last}}<span>&</span>{{/unless}}
 {{/each}}
-  <a href="#" class="webkite-clear-filters"></a>
   </div>
 </div>
