@@ -6,7 +6,7 @@
 
 <div class="webkite-results-container">
 {{#each this.items}}
-<div id="{{this.id}}" class="webkite-item-details">{{>results-modal}}</div>
+<div id="{{this.id}}" class="webkite-item-details webkite-modal">{{>results-modal}}</div>
 {{/each}}
   {{#each this.items}}
   <div class="webkite-result-wrapper">
@@ -31,8 +31,7 @@
         </li>
     	</ul>
     	
-    	<a href="#{{this.id}}" data-id={{this.id}} class="webkite-toggle-item webkite-toggle {{this.id}}-toggler {{#if showDetails}}webkite-hide{{/if}} more-button" data-target=".{{this.id}}-toggler" data-toggle="modal" data-animate="200ms" data-speed="100ms">more</a>
-    	<a href="#{{this.id}}" data-id={{this.id}} class="webkite-toggle-item webkite-toggle {{this.id}}-toggler {{#unless showDetails}}webkite-hide{{/unless}} less-button" data-target=".{{this.id}}-toggler" data-animate="200ms" data-speed="100ms">less</a>
+    	<a href="#{{this.id}}" data-id={{this.id}} class="webkite-toggle-item more-button" data-toggle="modal" data-animate="200ms" data-speed="100ms">more</a>
   	<footer class="breaking"></footer>
     </section>
   </div><!-- webkite-result-wrapper -->

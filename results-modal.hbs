@@ -44,21 +44,29 @@
       <li>
         <b>university</b>
         {{#facet name="University"}}
-        {{#if filterable}}
-        <a href="#" class="webkite-add-filter" data-facet="{{text}}" data-operator="is">{{displayValue}}</a>
-        {{else}}
-        {{displayValue}}
-        {{/if}}
-        {{/facet}}
+          {{#if filterable}}
+          <span class="facet-values">
+          {{#each values}}
+          <a href="#" class="webkite-add-filter" data-facet="{{../name}}" data-operator="is" data-value="{{this}}">{{this}}</a>{{#unless @last}}, <br>{{/unless}}
+          {{/each}}
+          </span>
+          {{else}}
+          {{displayValue}}
+          {{/if}}
+          {{/facet}}
       </li>
       <li>
         <b>degree</b>
         {{#facet name="Degree"}}
         {{#if filterable}}
-        <a href="#" class="webkite-add-filter" data-facet="{{text}}" data-operator="is">{{displayValue}}</a>
-        {{else}}
-        {{displayValue}}
-        {{/if}}
+          <span class="facet-values">
+          {{#each values}}
+          <a href="#" class="webkite-add-filter" data-facet="{{../name}}" data-operator="is" data-value="{{this}}">{{this}}</a>{{#unless @last}}, <br>{{/unless}}
+          {{/each}}
+          </span>
+          {{else}}
+          {{displayValue}}
+          {{/if}}
         {{/facet}}
       </li>
       <li>
@@ -70,21 +78,29 @@
       <li>
         <b>employer</b>
         {{#facet name="Employer"}}
-        {{#if filterable}}
-        <a href="#" class="webkite-add-filter" data-facet="{{text}}" data-operator="is">{{displayValue}}</a>
-        {{else}}
-        {{displayValue}}
-        {{/if}}
+          {{#if filterable}}
+          <span class="facet-values">
+          {{#each values}}
+          <a href="#" class="webkite-add-filter" data-facet="{{../name}}" data-operator="is" data-value="{{this}}">{{this}}</a>{{#unless @last}}, <br>{{/unless}}
+          {{/each}}
+          </span>
+          {{else}}
+          {{displayValue}}
+          {{/if}}
         {{/facet}}
       </li>
       <li>
         <b>department</b>
         {{#facet name="Department"}}
-        {{#if filterable}}
-        <a href="#" class="webkite-add-filter" data-facet="{{text}}" data-operator="is">{{displayValue}}</a>
-        {{else}}
-        {{displayValue}}
-        {{/if}}
+          {{#if filterable}}
+          <span class="facet-values">
+          {{#each values}}
+          <a href="#" class="webkite-add-filter" data-facet="{{../name}}" data-operator="is" data-value="{{this}}">{{this}}</a>{{#unless @last}}, <br>{{/unless}}
+          {{/each}}
+          </span>
+          {{else}}
+          {{displayValue}}
+          {{/if}}
         {{/facet}}
       </li>
       <li>
@@ -94,6 +110,6 @@
         {{/facet}}
       </li>
     </ul>
-    <a href="#{{this.id}}" data-id={{this.id}} class="webkite-toggle-item webkite-toggle {{this.id}}-toggler {{#unless showDetails}}webkite-hide{{/unless}} less-button" data-target=".{{this.id}}-toggler" data-animate="200ms" data-speed="100ms">less</a>
+    <a href="#{{this.id}}" data-id={{this.id}} class="webkite-toggle-item less-button" data-animate="200ms" data-speed="100ms">less</a>
 </div><!-- webkite-moal-block-sixty -->
 </div><!-- webkite-result-modal -->
