@@ -2,7 +2,7 @@
 
 @import 'dark-palette';
 
-$shadowOpacity: rgba(0,0,0,.2);
+$shadowOpacity: rgba(0,0,0,.5);
 $linkColor: #1b9cd2;
 $linkHover: #0073a7;
 
@@ -34,6 +34,26 @@ $mainGutter: 1.25em;
   -moz-box-shadow: 0 .125em .313em $shadowOpacity;
   box-shadow: 0 .125em .313em $shadowOpacity;
   }
+@mixin hyphenGreat{
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  }
+@mixin ellipsisThis{
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  }
+@mixin putHere ($position){
+  top: $position;
+  right: $position;
+  bottom: $position;
+  left: $position;
+  }
 @mixin breakThat{
   &:after{
     content: '';
@@ -43,7 +63,7 @@ $mainGutter: 1.25em;
     }
   }
   
-@include web-font((Open Sans) (300,400,400i,700,700i));
+@include web-font(("Open+Sans") ("300,400,400i,700,700i"));
 
 /* RESET */
 #webkite-results{
@@ -56,11 +76,11 @@ $mainGutter: 1.25em;
   border: 1px solid $lighterOpacity;
   @include roundedUp(.625em);
   @include boxedUp;
-  max-width: 43.750em;
-  margin: 0 auto;
-  padding: $mainGutter;
   font-family:"Open Sans";
   font-size: 16px;
+  max-width: 43.75em;
+  margin: 0 auto;
+  padding: $mainGutter;
   a{color:$linkColor;
       text-decoration: none; 
     &:hover{color: $linkHover;}
@@ -69,17 +89,12 @@ $mainGutter: 1.25em;
   
 /* TYPOGRAPHY */
 #webkite-results{
-  h1, h2{
-    margin: 0;
-    }
-  h1{
-    font: 300 2.25em/1 "Open Sans";
-    color: $highOpacity;
-    margin-bottom: $mainGutter/2;
-    }
   h2{
-    font: 700 1.5em/1 "Open Sans";
+    @include hyphenGreat;
     color: $medOpacity;
+    display: inline-block;
+    font: 700 1.125em/1 "Open Sans";
+    margin: 0;
     }
   p, li{
     color: $lightOpacity;
@@ -90,21 +105,23 @@ $mainGutter: 1.25em;
 #webkite-results{
 
   .webkite-results-header, .webkite-results-footer{
+    @include breakThat;
     text-align: justify;
     position: relative;
-    h1{text-align: left;}
-    @include breakThat;
     .webkite-title-area, .webkite-sort-area, .webkite-filter-area, .webkite-branding-area, .webkite-pagination-area{
       display: inline-block;
       vertical-align:top;
       }
-    /* dark theme only */
+    /* light theme only */
     .webkite-branding-area a {
       background: url("branding-dark.svg") center top no-repeat;
       display: inline-block;
       height: 2.813em;
       width: 8.5em;
       }
+    }
+  .webkite-results-header{
+    line-height: 1;
     }
   .webkite-results-footer{
     height: 2.813em;
@@ -114,40 +131,65 @@ $mainGutter: 1.25em;
 /************************************************* SORTS */
 #webkite-results{
 
-  select.webkite-sort{
+  .webkite-sort-area > a.webkite-toggle{
     @include boxedUp;
     @include roundedUp(.188em);
-    -webkit-appearance: none;
     background: $lightestOpacity;
     color: $lightOpacity;
+    display: inline-block;
     border: 1px solid $lighterOpacity;
-    font-size: 0.875em;
-    font-weight: 700;
+    font: 700 .875em/1.3 "Open Sans";
     margin: 0;
-    padding: 0 $mainGutter/4;
-    width: 5.5em;
-    -moz-appearance: none;
-    text-indent: 0.01px;
-    text-overflow: '';
+    padding: $mainGutter/4 $mainGutter/2;
     height: 2em;
-    line-height: 1em;
-    }  
-  div.webkite-sort{
-    position: relative;
-    z-index: 2;
-    &:after{
-      content: "\25BE";
-      color: $lightOpacity;
-      display:block;
-      opacity: .5;
-      position: absolute;
-      right: $mainGutter/4;
-      top:10%;
+    i{
+      background: url("angle-dark.png") center center no-repeat;
+      display: inline-block;
+      height: 10px;
+      margin-left: $mainGutter/2;
       pointer-events: none;
+      width: 10px;
       }
+    }
+  .webkite-sort-area{
+    position: relative;
+    z-index: 3;
     }
   
   }
+/********************************************* SORT MENU */
+#webkite-results{
+
+  .sort-menu{
+    margin: 0;
+    @include roundedUp(.375em);
+    @include shadowHere;
+    -webkit-padding-start: 0;
+    -moz-padding-start: 0;
+    background: white;
+    font-size: .875em;
+    padding: $mainGutter/2 0;
+    position: absolute;
+    z-index: 4;
+    top: $mainGutter/2;
+    left: $mainGutter/2;
+    }
+  .sort-menu li{
+    list-style-type: none;
+    position: relative;
+    }
+  .sort-menu li a{
+    display: block;
+    padding: $mainGutter/8 $mainGutter/2;
+    white-space: pre;
+    &:hover{
+      background: $linkColor;
+      color: white;
+      } 
+    }
+  
+  }
+
 
 /************************************************ FILTERS */
 #webkite-results{
@@ -156,8 +198,10 @@ $mainGutter: 1.25em;
     @include boxedUp;
     width: 100%;
     position: relative;
-    padding-left: 5.5em;
-    margin-left: -5.5em;
+    }
+  .webkite-sort-area + .webkite-filter-area{
+    padding-left: 4.5em;
+    margin-left: -4.5em;
     }
   .webkite-applied-filters{
     position: relative; 
@@ -169,17 +213,17 @@ $mainGutter: 1.25em;
     border: 1px solid $lighterOpacity;
     display: inline-block;
     height: 1.75em;
-    padding: $mainGutter/4;
-    padding-left: 4.2em;
+    overflow: hidden;
+    padding: $mainGutter/4 1.563em $mainGutter/4 5.2em;
     width: 100%;
-    text-align: end;
+    text-align: left;
     /* and & or */
     span{
-      color: $lightOpacity;
-      float: left;
+      color: $lightOpacity/2;
       font-size: .875em;
       line-height: 1.2em;
       margin: 0 $mainGutter/4;
+      vertical-align: top;
       }
     }
   .webkite-applied-filters > a{
@@ -189,30 +233,39 @@ $mainGutter: 1.25em;
     left: 0;
     @include boxedUp;
     @include roundedUp(.188em 0 0 .188em);
-    background: $lightestOpacity;
+    background: rgba(0,0,0,.85);
     border: 1px solid $lightestOpacity;
     border-right: 1px solid $lighterOpacity;
     color: $lightOpacity;
     font-size: 0.875em;
     font-weight: 700;
-    line-height: 1.9em;
-    padding: 0 $mainGutter/4 0 $mainGutter/4;
+    line-height: 2em;
+    padding: 0 $mainGutter/2;
     height: 2em;
+    i{
+      background: url("plus-dark.png") no-repeat;
+      display: inline-block;
+      height: 12px;
+      width: 12px;
+      margin-left: $mainGutter/2;
+      pointer-events: none;
+      }
     } 
-  .webkite-applied-filters > a b{
-    font-size: .8em;
-    opacity: .5;
-    pointer-events: none;
-    }
   /* tokens */
   a.webkite-remove-filter{
+    @include ellipsisThis;
     @include roundedUp (.188em);
     color: white;
-    float:left;
     font-size: 0.875em;
     line-height: 1em;
+    max-width: 6.25em;
     padding: $mainGutter/20 $mainGutter/4;
+    text-align: left;
+    word-wrap: normal;
     &:hover{text-decoration: line-through;}
+    }
+  [class^="filter-group"]{
+    display: inline-block;
     }
   .filter-group-0 a.webkite-remove-filter{
     background: $tokenFirst;
@@ -231,15 +284,18 @@ $mainGutter: 1.25em;
     }
   /* clear everything */ 
   a.webkite-clear-filters{
-    background: $linkColor;
-    color: white;
-    font-size: .5em;
-    font-weight: 700;
-    line-height: 1.7em;
-    vertical-align: text-top;
-    padding: .125em .65em .375em .65em;
-    @include roundedUp (50%);
+    background: url("clear-all-icon.png") center top no-repeat;
+    display: inline-block;
+    height: 18px;
+    width: 18px;
+    margin-top: -1px;
+    position: absolute;
+    right: .325em;
+    &:active{
+      background-position-y: -18px;
+      }
     }
+  
   
   }
 /**************************************** FILTER DROPDOWN */
@@ -270,8 +326,19 @@ $mainGutter: 1.25em;
     &:hover{
       background: $linkColor;
       color: white;
-      } 
+      }
     }
+  .filter-menu > li > a{
+      padding-right: $mainGutter;
+      position: relative;
+      &:after{
+        content: "\203A";
+        color: $lightOpacity/2;
+        opacity: .5;
+        position: absolute;
+        right: $mainGutter/3;
+        }
+      }
   .filter-menu-child{
     @include roundedUp(.375em);
     @include shadowHere;
@@ -295,8 +362,15 @@ $mainGutter: 1.25em;
 
   .webkite-results-paginator{
     font-size: 1em;
-    & a, & p{display: inline;}
-    & a{font-size: 1.2em; line-height: 0;}
+    a, p{display: inline;}
+    em{font-style: italic;}
+    a{font-size: 1.2em; line-height: 0;}
+    }
+  .first-result-page, .previous-result-page{
+    padding-right: $mainGutter/2;
+    }
+  .next-result-page, .last-result-page{
+    padding-left: $mainGutter/2;
     }
   /* page input */
   input.webkite-page-input{
@@ -305,7 +379,7 @@ $mainGutter: 1.25em;
     padding: $mainGutter/4;
     max-width: 1.5em; 
     font-size: .9em;
-    color: rgba(0,0,0,.6);
+    color: $lightOpacity/2;
     }
   /* remove arrows */
   .webkite-page-input::-webkit-outer-spin-button,
@@ -317,11 +391,164 @@ $mainGutter: 1.25em;
 }
   
 /********************************************** BLOCKS */
-#webkite-results{  
+#webkite-results{
+  
+  .webkite-results-container{
+    @include breakThat;
+    position: relative;
+    text-align: justify;
+    }
+  .webkite-result-wrapper{
+    @include boxedUp;
+    display: inline-block;
+    margin-bottom: $mainGutter;
+    vertical-align: top;
+    width: 31%;
+    &.placeholder.only-lg{display: none;}
+    img {
+      max-width: 100%;
+      height: auto;
+      @include roundedUp(0.188em 0.188em 0 0);
+      }
+    }
+ 
   }
   
 /************************************ PORTRAIT RESULTS */
-#webkite-results{  
+#webkite-results{
+ 
+  .webkite-result{
+    @include boxedUp;
+    @include roundedUp(.188em);
+    background: $lightestOpacity;
+    border: 1px solid $lighterOpacity;  
+    margin-top: -$mainGutter/4;
+    padding: $mainGutter/2;
+    ul{
+      margin-top: $mainGutter;
+      }
+    li{
+      text-align: left;
+      margin-bottom: $mainGutter/2;
+      a.webkite-address span{
+        @include ellipsisThis;
+        &.city, &.state{display: inline;}
+        }
+      .city + .state:before{content: ", ";}
+      a.webkite-email{
+        @include ellipsisThis;
+        font-size: .875em;
+        width: 100%;
+        }
+      }
+    a.more-button, a.less-button{
+      @include boxedUp;
+      @include roundedUp(.188em);
+      color: white;
+      display: inline-block;
+      float: right;
+      font: 400 .75em/1 "Open Sans";
+      padding: $mainGutter/4 $mainGutter/2;
+      margin-top: $mainGutter;
+      text-align: center;
+      width: 4.375em;
+      }
+    a.more-button{
+      background: $linkColor;
+      &:hover{background: $linkHover;}
+      }
+    a.less-button{
+      background: $lightOpacity;
+      &:hover{background: $lightOpacity*2;}
+      }
+    footer.breaking{
+      clear: both;
+      }
+    }
+  img + .webkite-result{
+    @include roundedUp(0 0 .188em .188em);
+    border-top: none;
+    } 
+    
+  }
+  
+/*************************************** DETAILS MODAL */
+#webkite-results{
+  .webkite-item-details{
+    @include boxedUp;
+    margin-left: -$mainGutter;
+    max-width: 43.750em;
+    padding: $mainGutter;
+    position: fixed;
+    top: 0;
+    z-index: 3;
+    h2{font: 700 1.5em/1 "Open Sans";}
+    }
+  .webkite-result-modal{
+    @include boxedUp;
+    @include roundedUp (.625em);
+    @include shadowHere;
+    background: $backgroundColor;
+    border: 1px solid rgba(255,255,255,.2);
+    padding: $mainGutter;
+    text-align: justify;
+   a.webkite-address span{
+      display: inline-block;
+      max-width: 100%;
+      &.city, &.state{display: inline;}
+      }
+    .city + .state:before{content: ", ";}
+    a.less-button{
+      @include boxedUp;
+      @include roundedUp(.188em);
+      color: white;
+      display: inline-block;
+      float: right;
+      font: 400 .75em/1 "Open Sans";
+      padding: $mainGutter/4 $mainGutter/2;
+      margin-top: $mainGutter;
+      text-align: center;
+      width: 4.375em;
+      background: $lightOpacity;
+      &:hover{background: $lightOpacity*2;}
+      }
+    }
+  .webkite-modal-block-forty, .webkite-modal-block-sixty{
+    @include boxedUp;
+    display: inline-block;
+    vertical-align: top;
+    h2{}
+    li{
+      padding-bottom: $mainGutter/2;
+      text-align: left;
+      a, b{display: inline-block;width: 100%;}
+      b{font-weight: 700;}
+      }
+    }
+  .webkite-modal-block-forty{
+    width: 39%;
+    img{
+      max-width: 100%;
+      height: auto;
+      margin-bottom: $mainGutter;
+      }
+    }
+  .webkite-modal-block-sixty{
+    width: 59%;
+    padding-left: $mainGutter;
+    }
+    
+  /* blocking */
+  .webkite-modal-blocking{
+    display: block;
+    background: rgba(0,0,0,.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    }
+  
   }
   
 /************************************** ELEMENT QUERIES */
@@ -330,9 +557,13 @@ $mainGutter: 1.25em;
     width: 100%;
     padding-right: 0;
     }
-  .webkite-filter-area, .webkite-sort-area, select.webkite-sort{
+  .webkite-filter-area, .webkite-sort-area, .webkite-sort-area > a{
     width: 100%;
     }
+  .webkite-sort-area > a.webkite-toggle i{
+    float: right; margin-top: $mainGutter/4;
+    }
+  .sort-menu{width: 95%;}
   .webkite-filter-area{
     margin-top: $mainGutter;
     margin-left: 0;
@@ -341,21 +572,52 @@ $mainGutter: 1.25em;
   .webkite-title-area, .webkite-branding-area, .webkite-pagination-area{
     text-align: center;
     }
+   .webkite-result-wrapper{width: 100%;}
   .webkite-branding-area{
     padding-bottom: $mainGutter; 
     }
   .webkite-results-footer{
     height: 2.813em*2+$mainGutter;
     }
-  }
+  .webkite-item-details{
+    @include putHere(0);
+    margin: 0;
+    padding: $mainGutter/2;
+    overflow: scroll;
+    .webkite-modal-block-forty, .webkite-modal-block-sixty{width: 100%; padding: 0;}
+    li{b, a, span{width: 100%;}}   
+    }
+    
+  }//end xs
   
 #webkite-results.sm{
-  .webkite-filter-area, .webkite-sort-area, select.webkite-sort{
+  .webkite-filter-area, .webkite-sort-area, .webkite-sort-area > a{
     width: 100%;
     }
+  .webkite-sort-area > a.webkite-toggle i{
+    float: right; margin-top: $mainGutter/4;
+    }
+  .sort-menu{width: 95%;}
   .webkite-filter-area{
     margin-top: $mainGutter;
     margin-left: 0;
     padding-left: 0;
     }
+  .webkite-result-wrapper{width: 48%;}
+  .webkite-item-details{
+    @include putHere(0);
+    margin: 0;
+    padding: $mainGutter/2;
+    overflow: scroll;
+    .webkite-modal-block-forty, .webkite-modal-block-sixty{width: 100%; padding: 0;}
+     li{
+        b{width: 39%; vertical-align:top;}
+        a, span{width:59%;}
+        }  
+    }
+    
+  }//end sm
+  
+#webkite-results.lg, #webkite-results.xl{
+  .webkite-result-wrapper{width: 23%;}
   }
