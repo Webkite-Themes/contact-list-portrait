@@ -2,6 +2,11 @@
 ---
 ##changelog
 
+###0.1.5
+
+* Added if check against filterableFacets
+* Wrapped non filted enums in span
+
 ###0.1.0
 
 
