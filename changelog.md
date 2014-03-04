@@ -2,7 +2,7 @@
 ---
 ##changelog
 
-###0.1.5
+###0.1.1
 
 * Added if check against filterableFacets
 * Wrapped non filted enums in span
