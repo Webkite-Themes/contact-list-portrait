@@ -501,7 +501,7 @@
     padding: 1.25em;
     position: fixed;
     top: 0;
-    z-index: 3; }
+    z-index: 99; }
     #webkite-results .webkite-item-details h2 {
       font: 700 1.5em/1 "Open Sans"; }
   #webkite-results .webkite-result-modal {
@@ -579,13 +579,82 @@
     right: 0;
     bottom: 0; }
 
+/************************************** INLINE FILTERS */
+#webkite-results .webkite-result-modal li b {
+  position: relative; }
+  #webkite-results .webkite-result-modal li b > .webkite-toggle {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-border-radius: 0.188em;
+    -moz-border-radius: 0.188em;
+    -ms-border-radius: 0.188em;
+    -o-border-radius: 0.188em;
+    border-radius: 0.188em;
+    border: 1px solid transparent;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    display: inline-block;
+    font: 700 1em/1.3 "Open Sans";
+    margin: 0;
+    padding: 0.3125em 0.3125em;
+    height: 2em;
+    margin-left: -0.3125em; }
+    #webkite-results .webkite-result-modal li b > .webkite-toggle i {
+      background: url("angle-light.png") center center no-repeat;
+      display: inline-block;
+      height: 10px;
+      margin-left: 0.625em;
+      pointer-events: none;
+      width: 10px; }
+    #webkite-results .webkite-result-modal li b > .webkite-toggle:hover {
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.05); }
+#webkite-results .webkite-result-modal .inline-filter-menu {
+  -webkit-border-radius: 0.375em;
+  -moz-border-radius: 0.375em;
+  -ms-border-radius: 0.375em;
+  -o-border-radius: 0.375em;
+  border-radius: 0.375em;
+  -webkit-box-shadow: 0 0.125em 0.313em rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 0.125em 0.313em rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0.125em 0.313em rgba(0, 0, 0, 0.5);
+  -webkit-padding-start: 0;
+  -moz-padding-start: 0;
+  position: absolute;
+  background: white;
+  padding: 0.625em 0;
+  top: 0.625em;
+  left: 0.625em;
+  margin: 0;
+  z-index: 2; }
+  #webkite-results .webkite-result-modal .inline-filter-menu li {
+    padding-bottom: 0; }
+    #webkite-results .webkite-result-modal .inline-filter-menu li a {
+      color: #1b9cd2;
+      display: block;
+      font-size: .875em;
+      font-weight: 400;
+      max-width: 100%;
+      padding: 0.15625em 0.625em;
+      white-space: pre; }
+      #webkite-results .webkite-result-modal .inline-filter-menu li a:hover {
+        background: #1b9cd2;
+        color: white; }
+
+/******************************************* NO RESULTS */
+#webkite-results .webkite-no-results {
+  padding: 1.25em 0; }
+  #webkite-results .webkite-no-results h2 {
+    margin-bottom: 1.25em; }
+
 /************************************** ELEMENT QUERIES */
 #webkite-results.xs .webkite-block, #webkite-results.xs .webkite-title-area, #webkite-results.xs .webkite-branding-area, #webkite-results.xs .webkite-pagination-area {
   width: 100%;
   padding-right: 0; }
-#webkite-results.xs .webkite-filter-area, #webkite-results.xs .webkite-sort-area, #webkite-results.xs .webkite-sort-area > a {
+#webkite-results.xs .webkite-filter-area, #webkite-results.xs .webkite-sort-area, #webkite-results.xs .webkite-sort-area > .webkite-toggle {
   width: 100%; }
-#webkite-results.xs .webkite-sort-area > a.webkite-toggle i {
+#webkite-results.xs .webkite-sort-area > .webkite-toggle i {
   float: right;
   margin-top: 0.3125em; }
 #webkite-results.xs .sort-menu {
@@ -607,18 +676,24 @@
   right: 5%;
   bottom: 5%;
   left: 5%;
-  margin: 0 auto;
-  padding: 0.625em;
-  overflow: scroll; }
+  margin: auto;
+  padding: 0.625em; }
+  #webkite-results.xs .webkite-item-details .webkite-result-modal {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    max-height: 100%;
+    overflow-y: scroll; }
   #webkite-results.xs .webkite-item-details .webkite-modal-block-forty, #webkite-results.xs .webkite-item-details .webkite-modal-block-sixty {
     width: 100%;
     padding: 0; }
-  #webkite-results.xs .webkite-item-details li b, #webkite-results.xs .webkite-item-details li a, #webkite-results.xs .webkite-item-details li span {
+  #webkite-results.xs .webkite-item-details li b, #webkite-results.xs .webkite-item-details li .facet-values {
     width: 100%; }
 
-#webkite-results.sm .webkite-filter-area, #webkite-results.sm .webkite-sort-area, #webkite-results.sm .webkite-sort-area > a {
+#webkite-results.sm .webkite-filter-area, #webkite-results.sm .webkite-sort-area, #webkite-results.sm .webkite-sort-area > .webkite-toggle {
   width: 100%; }
-#webkite-results.sm .webkite-sort-area > a.webkite-toggle i {
+#webkite-results.sm .webkite-sort-area > .webkite-toggle i {
   float: right;
   margin-top: 0.3125em; }
 #webkite-results.sm .sort-menu {
@@ -634,16 +709,24 @@
   right: 5%;
   bottom: 5%;
   left: 5%;
-  margin: 0 auto;
-  padding: 0.625em;
-  overflow: scroll; }
+  margin: auto;
+  padding: 0.625em; }
+  #webkite-results.sm .webkite-item-details .webkite-result-modal {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    max-height: 100%;
+    overflow-y: scroll; }
   #webkite-results.sm .webkite-item-details .webkite-modal-block-forty, #webkite-results.sm .webkite-item-details .webkite-modal-block-sixty {
     width: 100%;
     padding: 0; }
   #webkite-results.sm .webkite-item-details li b {
     width: 39%;
     vertical-align: top; }
-  #webkite-results.sm .webkite-item-details li a, #webkite-results.sm .webkite-item-details li span {
+    #webkite-results.sm .webkite-item-details li b.inline-filter-button + .facet-values {
+      padding-top: 0.3125em; }
+  #webkite-results.sm .webkite-item-details li .facet-values {
     width: 59%; }
 
 #webkite-results.lg .webkite-result-wrapper, #webkite-results.xl .webkite-result-wrapper {

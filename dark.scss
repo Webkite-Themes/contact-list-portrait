@@ -508,7 +508,7 @@ $mainGutter: 1.25em;
     padding: $mainGutter;
     position: fixed;
     top: 0;
-    z-index: 3;
+    z-index: 99;
     h2{font: 700 1.5em/1 "Open Sans";}
     }
   .webkite-result-modal{
@@ -577,17 +577,88 @@ $mainGutter: 1.25em;
     }
   
   }
+/************************************** INLINE FILTERS */
+#webkite-results{
+
+  .webkite-result-modal li b{
+    position: relative;
+    > .webkite-toggle{
+      @include boxedUp;
+      @include roundedUp(.188em);
+      border: 1px solid transparent;
+      color: $lightOpacity;
+      cursor: pointer;
+      display: inline-block;
+      font: 700 1em/1.3 "Open Sans";
+      margin: 0;
+      padding: $mainGutter/4 $mainGutter/4;
+      height: 2em;
+      margin-left: -$mainGutter/4;
+      i{
+        background: url("angle-light.png") center center no-repeat;
+        display: inline-block;
+        height: 10px;
+        margin-left: $mainGutter/2;
+        pointer-events: none;
+        width: 10px;
+        }
+      &:hover{
+        border: 1px solid $lighterOpacity;
+        background: $lightestOpacity;
+        }
+      }
+    }
+  .webkite-result-modal .inline-filter-menu{
+    @include roundedUp(.375em);
+    @include shadowHere;
+    -webkit-padding-start: 0;
+    -moz-padding-start: 0;
+    position: absolute; 
+    background: white;
+    padding: $mainGutter/2 0;
+    top: $mainGutter/2;
+    left: $mainGutter/2;
+    margin: 0;
+    z-index: 2;
+    li {
+      padding-bottom: 0;
+      a{
+        color: $linkColor;
+        display: block;
+        font-size: .875em;
+        font-weight: 400;
+        max-width: 100%;
+        padding: $mainGutter/8 $mainGutter/2;
+        white-space: pre;
+        &:hover{background: $linkColor;color: white;}
+        }
+      }
+    }
   
+}
+
+/******************************************* NO RESULTS */
+#webkite-results{
+  
+  .webkite-no-results{
+    padding: $mainGutter 0;
+    h2{
+      margin-bottom: $mainGutter;
+      }
+    }
+
+  }
+   
 /************************************** ELEMENT QUERIES */
 #webkite-results.xs{
   .webkite-block,.webkite-title-area, .webkite-branding-area, .webkite-pagination-area{
     width: 100%;
     padding-right: 0;
     }
-  .webkite-filter-area, .webkite-sort-area, .webkite-sort-area > a{
+  .webkite-filter-area, .webkite-sort-area, .webkite-sort-area > .webkite-toggle{
     width: 100%;
     }
-  .webkite-sort-area > a.webkite-toggle i{
+  .webkite-sort-area > .webkite-toggle i{
     float: right; margin-top: $mainGutter/4;
     }
   .sort-menu{width: 95%;}
@@ -608,20 +679,24 @@ $mainGutter: 1.25em;
     }
   .webkite-item-details{
     @include putHere(5%);
-    margin: 0 auto;
+    margin: auto;
     padding: $mainGutter/2;
-    overflow: scroll;
+    .webkite-result-modal{
+      @include putHere(0);
+      max-height: 100%;
+      overflow-y: scroll;
+      }
     .webkite-modal-block-forty, .webkite-modal-block-sixty{width: 100%; padding: 0;}
-    li{b, a, span{width: 100%;}}   
+    li{b, .facet-values{width: 100%;}}   
     }
     
   }//end xs
   
 #webkite-results.sm{
-  .webkite-filter-area, .webkite-sort-area, .webkite-sort-area > a{
+  .webkite-filter-area, .webkite-sort-area, .webkite-sort-area > .webkite-toggle{
     width: 100%;
     }
-  .webkite-sort-area > a.webkite-toggle i{
+  .webkite-sort-area > .webkite-toggle i{
     float: right; margin-top: $mainGutter/4;
     }
   .sort-menu{width: 95%;}
@@ -633,13 +708,17 @@ $mainGutter: 1.25em;
   .webkite-result-wrapper{width: 48%;}
   .webkite-item-details{
     @include putHere(5%);
-    margin: 0 auto;
+    margin: auto;
     padding: $mainGutter/2;
-    overflow: scroll;
+    .webkite-result-modal{
+      @include putHere(0);
+      max-height: 100%;
+      overflow-y: scroll;
+      }
     .webkite-modal-block-forty, .webkite-modal-block-sixty{width: 100%; padding: 0;}
      li{
-        b{width: 39%; vertical-align:top;}
-        a, span{width:59%;}
+        b{width: 39%; vertical-align:top; &.inline-filter-button + .facet-values{padding-top: $mainGutter/4;}}
+        .facet-values{width:59%;}
         }  
     }
     
