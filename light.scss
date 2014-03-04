@@ -190,6 +190,23 @@ $mainGutter: 1.25em;
       color: white;
       } 
     }
+  /* directional arrow */
+  .sort-menu li.active a{
+    position: relative;
+    padding-right: $mainGutter*1.5;
+    &.asc:after, &.desc:after{
+      background: url("sort-direction.png") no-repeat;
+      content: "";
+      display: block;
+      height: 5px;
+      width: 10px;
+      position: absolute;
+      top: $mainGutter/2;
+      right: $mainGutter/2;
+      }
+    &.asc:after{background-position-y: 0;}
+    &.desc:after{background-position-y: -5px;}
+    }
   
   }
 
@@ -256,7 +273,10 @@ $mainGutter: 1.25em;
       margin-left: $mainGutter/2;
       pointer-events: none;
       }
-    } 
+    }
+  .filter-token-wrapper{
+    @include ellipsisThis;
+    }
   /* tokens */
   a.webkite-remove-filter{
     @include ellipsisThis;
@@ -297,6 +317,7 @@ $mainGutter: 1.25em;
     margin-top: -1px;
     position: absolute;
     right: .325em;
+    top:.375em;
     &:active{
       background-position-y: -18px;
       }
@@ -304,6 +325,7 @@ $mainGutter: 1.25em;
   
   
   }
+
 /**************************************** FILTER DROPDOWN */
 #webkite-results{
 
@@ -325,7 +347,8 @@ $mainGutter: 1.25em;
     list-style-type: none;
     position: relative;
     }
-  .filter-menu li a{
+  .filter-menu li .webkite-link, .filter-menu li a{
+    color: $linkColor;
     display: block;
     padding: $mainGutter/8 $mainGutter/2;
     white-space: pre;
@@ -334,7 +357,9 @@ $mainGutter: 1.25em;
       color: white;
       }
     }
-  .filter-menu > li > a{
+  .filter-menu > li > .webkite-link{
+      color: $linkColor;
+      cursor: pointer;
       padding-right: $mainGutter;
       position: relative;
       &:after{
@@ -363,6 +388,7 @@ $mainGutter: 1.25em;
     }
   
   }
+
 /********************************************* PAGINATION */
 #webkite-results{
 
@@ -585,8 +611,8 @@ $mainGutter: 1.25em;
     height: 2.813em*2+$mainGutter;
     }
   .webkite-item-details{
-    @include putHere(0);
-    margin: 0;
+    @include putHere(5%);
+    margin: 0 auto;
     padding: $mainGutter/2;
     overflow: scroll;
     .webkite-modal-block-forty, .webkite-modal-block-sixty{width: 100%; padding: 0;}
@@ -610,8 +636,8 @@ $mainGutter: 1.25em;
     }
   .webkite-result-wrapper{width: 48%;}
   .webkite-item-details{
-    @include putHere(0);
-    margin: 0;
+    @include putHere(5%);
+    margin: 0 auto;
     padding: $mainGutter/2;
     overflow: scroll;
     .webkite-modal-block-forty, .webkite-modal-block-sixty{width: 100%; padding: 0;}
