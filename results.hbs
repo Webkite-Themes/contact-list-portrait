@@ -5,6 +5,7 @@
 </header>
 
 <div class="webkite-results-container">
+{{#if items.length}}
 {{#each this.items}}
 <div id="{{this.id}}" class="webkite-item-details webkite-modal">{{>results-modal}}</div>
 {{/each}}
@@ -38,6 +39,13 @@
   {{/each}}
   <div class="webkite-result-wrapper placeholder"></div>
   <div class="webkite-result-wrapper placeholder only-lg"></div>
+{{else}}
+<section class="webkite-no-results">
+  <h2>Sorry, no results</h2>
+  <p>There are no results to display based on the selected filters. Try removing a filter to see more results.</p>
+  <footer class="webkite-result-footer"></footer>
+</section>
+{{/if}}
 </div><!-- webkite-results-container -->
 
 <footer class="webkite-results-footer">
