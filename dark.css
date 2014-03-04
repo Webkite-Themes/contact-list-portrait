@@ -91,7 +91,7 @@
   height: 2.813em; }
 
 /************************************************* SORTS */
-#webkite-results .webkite-sort-area > a.webkite-toggle {
+#webkite-results .webkite-sort-area > .webkite-toggle {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -102,13 +102,16 @@
   border-radius: 0.188em;
   background: rgba(255, 255, 255, 0.05);
   color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
   display: inline-block;
   border: 1px solid rgba(255, 255, 255, 0.1);
   font: 700 .875em/1.3 "Open Sans";
   margin: 0;
+  outline: none;
   padding: 0.3125em 0.625em;
-  height: 2em; }
-  #webkite-results .webkite-sort-area > a.webkite-toggle i {
+  height: 2em;
+  text-align: left; }
+  #webkite-results .webkite-sort-area > .webkite-toggle i {
     background: url("angle-dark.png") center center no-repeat;
     display: inline-block;
     height: 10px;
@@ -179,7 +182,7 @@
     display: inline-block;
     height: 1.75em;
     overflow: hidden;
-    padding: 0.3125em 1.563em 0.3125em 5.2em;
+    padding: 0.3125em 1.563em 0.3125em 4.688em;
     width: 100%;
     text-align: left;
     /* and & or */ }
@@ -187,11 +190,13 @@
       color: rgba(127, 127, 127, 0.7);
       font-size: .875em;
       line-height: 1.2em;
-      margin: 0 0.3125em;
+      margin: 0 0.15625em;
       vertical-align: top; }
-  #webkite-results .webkite-applied-filters > a {
+  #webkite-results .webkite-applied-filters > .webkite-toggle {
+    cursor: pointer;
     display: inline-block;
     position: absolute;
+    margin: 0;
     z-index: 2;
     left: 0;
     -webkit-box-sizing: border-box;
@@ -211,7 +216,7 @@
     line-height: 2em;
     padding: 0 0.625em;
     height: 2em; }
-    #webkite-results .webkite-applied-filters > a i {
+    #webkite-results .webkite-applied-filters > .webkite-toggle i {
       background: url("plus-dark.png") no-repeat;
       display: inline-block;
       height: 12px;
