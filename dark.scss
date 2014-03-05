@@ -680,7 +680,7 @@ $mainGutter: 1.25em;
   .webkite-item-details{
     @include putHere(5%);
     margin: auto;
-    max-width: 18.75em;
+    max-width: 21.875em;
     padding: $mainGutter/2;
     .webkite-result-modal{
       @include putHere(0);
