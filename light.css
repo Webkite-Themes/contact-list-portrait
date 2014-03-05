@@ -681,6 +681,7 @@
   bottom: 5%;
   left: 5%;
   margin: auto;
+  max-width: 18.75em;
   padding: 0.625em; }
   #webkite-results.xs .webkite-item-details .webkite-result-modal {
     top: 0;
@@ -714,6 +715,7 @@
   bottom: 5%;
   left: 5%;
   margin: auto;
+  max-width: 25em;
   padding: 0.625em; }
   #webkite-results.sm .webkite-item-details .webkite-result-modal {
     top: 0;
@@ -725,13 +727,11 @@
   #webkite-results.sm .webkite-item-details .webkite-modal-block-forty, #webkite-results.sm .webkite-item-details .webkite-modal-block-sixty {
     width: 100%;
     padding: 0; }
-  #webkite-results.sm .webkite-item-details li b {
-    width: 39%;
-    vertical-align: top; }
-    #webkite-results.sm .webkite-item-details li b.inline-filter-button + .facet-values {
-      padding-top: 0.3125em; }
-  #webkite-results.sm .webkite-item-details li .facet-values {
-    width: 59%; }
+  #webkite-results.sm .webkite-item-details .webkite-modal-block-forty, #webkite-results.sm .webkite-item-details .webkite-modal-block-sixty {
+    width: 100%;
+    padding: 0; }
+  #webkite-results.sm .webkite-item-details li b, #webkite-results.sm .webkite-item-details li .facet-values {
+    width: 100%; }
 
 #webkite-results.lg .webkite-result-wrapper, #webkite-results.xl .webkite-result-wrapper {
   width: 23%; }

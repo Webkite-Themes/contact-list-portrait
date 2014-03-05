@@ -680,6 +680,7 @@ $mainGutter: 1.25em;
   .webkite-item-details{
     @include putHere(5%);
     margin: auto;
+    max-width: 18.75em;
     padding: $mainGutter/2;
     .webkite-result-modal{
       @include putHere(0);
@@ -709,6 +710,7 @@ $mainGutter: 1.25em;
   .webkite-item-details{
     @include putHere(5%);
     margin: auto;
+    max-width: 25em;
     padding: $mainGutter/2;
     .webkite-result-modal{
       @include putHere(0);
@@ -716,10 +718,7 @@ $mainGutter: 1.25em;
       overflow-y: scroll;
       }
     .webkite-modal-block-forty, .webkite-modal-block-sixty{width: 100%; padding: 0;}
-     li{
-        b{width: 39%; vertical-align:top; &.inline-filter-button + .facet-values{padding-top: $mainGutter/4;}}
-        .facet-values{width:59%;}
-        }  
+     li{b, .facet-values{width: 100%;}} 
     }
     
   }//end sm
