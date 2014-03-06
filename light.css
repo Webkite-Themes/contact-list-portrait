@@ -52,6 +52,8 @@
     text-decoration: none; }
     #webkite-results a:hover {
       color: #0073a7; }
+  #webkite-results.webkite-fade-out img {
+    opacity: .5; }
 
 /* TYPOGRAPHY */
 #webkite-results h2 {

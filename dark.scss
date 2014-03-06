@@ -85,6 +85,7 @@ $mainGutter: 1.25em;
       text-decoration: none; 
     &:hover{color: $linkHover;}
     }
+  &.webkite-fade-out img{opacity: .5;}
   }
   
 /* TYPOGRAPHY */
