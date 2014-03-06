@@ -2,6 +2,15 @@
 ---
 ##changelog
 
+###0.1.2
+
+* Properly wrapping all facet output in checks
+* Background position standardized for Firefox
+* Margins between filter area and sort area depend on both existing
+* More specific font declarations on buttons
+* Tweaking of filters so that spacing between strings and tokens is more conistent
+* Inline filter menus have a max-height
+
 ###0.1.1
 
 * Added if check against filterableFacets
@@ -17,6 +26,6 @@
 * No results text for when we filter down to zero
 * Initial overflow behavior for the filter bar
 * Some changes to the modal's scroll behavior and placement
-  * rificulous z-index given to hopefully assure modal sits on top of everything
+  * ridiculous z-index given to hopefully assure modal sits on top of everything
 
 —[Chris](mailto:chris@webkite.com)
