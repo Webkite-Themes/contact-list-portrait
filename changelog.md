@@ -2,7 +2,7 @@
 ---
 ##changelog
 
-###0.1.2
+###0.1.1
 
 * Properly wrapping all facet output in checks
 * Background position standardized for Firefox
@@ -11,7 +11,7 @@
 * Tweaking of filters so that spacing between strings and tokens is more conistent
 * Inline filter menus have a max-height
 
-###0.1.1
+###0.1.0.5
 
 * Added if check against filterableFacets
 * Wrapped non filted enums in span
