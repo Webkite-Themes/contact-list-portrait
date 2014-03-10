@@ -11,10 +11,13 @@
 {{/each}}
   {{#each this.items}}
   <div class="webkite-result-wrapper">
-    {{#facet name="Image"}}<img src="{{displayValue}}"/>{{/facet}}
+    {{#facet name="Image"}}
+    <div class="webkite-result-image">
+      <img src="{{displayValue}}"/>
+    </div>
+    {{/facet}}
     <section class="webkite-result">
-      {{#facet name="First Name"}}<h2>{{displayValue}} </h2>{{/facet}}
-      {{#facet name="Last Name"}}<h2>{{displayValue}}</h2>{{/facet}}
+      <h2>{{#facet name="First Name"}}{{displayValue}} {{/facet}}{{#facet name="Last Name"}}{{displayValue}}{{/facet}}</h2>
       <ul>
     	  <li>
           <a class="webkite-address" target="_blank" href="http://maps.google.com/?q={{#facet name='Address 1'}}{{displayValue}}{{/facet}} {{#facet name='City'}}{{displayValue}}{{/facet}} {{#facet name='State'}}{{displayValue}}{{/facet}} {{#facet name='Zip Code'}}{{displayValue}}{{/facet}} {{#facet name='Country'}}{{displayValue}}{{/facet}}">
