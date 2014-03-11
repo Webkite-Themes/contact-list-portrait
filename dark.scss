@@ -81,6 +81,7 @@ $mainGutter: 1.25em;
   max-width: 43.75em;
   margin: 0 auto;
   padding: $mainGutter;
+  position: relative;
   a{color:$linkColor;
       text-decoration: none; 
     &:hover{color: $linkHover;}
@@ -431,11 +432,6 @@ $mainGutter: 1.25em;
     vertical-align: top;
     width: 31%;
     &.placeholder.only-lg{display: none;}
-    img {
-      max-width: 100%;
-      height: auto;
-      @include roundedUp(0.188em 0.188em 0 0);
-      }
     }
  
   }
@@ -448,7 +444,6 @@ $mainGutter: 1.25em;
     @include roundedUp(.188em);
     background: $lightestOpacity;
     border: 1px solid $lighterOpacity;  
-    margin-top: -$mainGutter/4;
     padding: $mainGutter/2;
     ul{
       margin-top: $mainGutter;
@@ -491,11 +486,31 @@ $mainGutter: 1.25em;
       clear: both;
       }
     }
-  img + .webkite-result{
-    @include roundedUp(0 0 .188em .188em);
-    border-top: none;
-    } 
-    
+  .webkite-result-image{
+    @include roundedUp(0.188em 0.188em 0 0);
+    background:rgba(0,0,0,0.1);
+    width:100%;
+    height:0;
+    padding-bottom:100%;
+    position:relative;
+    img{
+      display:block;
+      margin:auto;
+      max-height:100%;
+      max-width:100%;
+      position:absolute;
+      top:0;
+      right:0;
+      bottom:0;
+      left:0;
+      }
+    }
+  .webkite-result-image + .webkite-result{
+    @include roundedUp(0 0 0.188em 0.188em);
+    margin-top:-1px;
+    background-clip:padding-box;
+    position:relative;
+    }
   }
   
 /*************************************** DETAILS MODAL */
@@ -507,7 +522,10 @@ $mainGutter: 1.25em;
     padding: $mainGutter;
     position: fixed;
     top: 0;
-    z-index: 99;
+    right:0;
+    left:0;
+    margin:auto;
+    z-index: 999999;
     h2{font: 700 1.5em/1 "Open Sans";}
     }
   .webkite-result-modal{
@@ -516,7 +534,10 @@ $mainGutter: 1.25em;
     @include shadowHere;
     background: $backgroundColor;
     border: 1px solid rgba(255,255,255,.2);
-    padding: $mainGutter;
+    padding: $mainGutter $mainGutter/5*2 $mainGutter*2 $mainGutter/4*3;
+    position:relative;
+    overflow:hidden;
+    height:100%;
     text-align: justify;
    a.webkite-address span{
       display: inline-block;
@@ -532,13 +553,17 @@ $mainGutter: 1.25em;
       float: right;
       font: 400 .75em/1 "Open Sans";
       padding: $mainGutter/4 $mainGutter/2;
-      margin-top: $mainGutter;
       text-align: center;
       width: 4.375em;
       background: $lightOpacity;
       &:hover{background: $lightOpacity*2;}
       }
     }
+  .webkite-modal-content{
+    height:100%;
+    padding-right:$mainGutter/5*3;
+    padding-left: $mainGutter/4;
+    }    
   .webkite-modal-block-forty, .webkite-modal-block-sixty{
     @include boxedUp;
     display: inline-block;
@@ -547,7 +572,7 @@ $mainGutter: 1.25em;
     li{
       padding-bottom: $mainGutter/2;
       text-align: left;
-      a, b{display: inline-block;width: 100%;}
+      b, .facet-values{display: inline-block;width: 100%;}
       b{font-weight: 700;}
       }
     }
@@ -563,16 +588,51 @@ $mainGutter: 1.25em;
     width: 59%;
     padding-left: $mainGutter;
     }
-    
+
+  .webkite-modal-img{
+    width:100%;
+    height:0;
+    padding-bottom:100%;
+    background:rgba(0,0,0,0.05);
+    margin-bottom:$mainGutter;
+    position:relative;
+    img{
+      display:block;
+      margin:auto;
+      max-height:100%;
+      max-width:100%;
+      position:absolute;
+      top:0;
+      right:0;
+      bottom:0;
+      left:0;
+      }
+    }
+
+  .webkite-modal-foot{
+    @include boxedUp;
+    position:absolute;
+    right:0;
+    bottom:0;
+    left:0;
+    padding:$mainGutter/2;
+    overflow:hidden;
+    height:$mainGutter*2;
+    border-top:1px solid rgba(0,0,0,0.1);
+    }
+
   /* blocking */
   .webkite-modal-blocking{
+    @include roundedUp (.625em);
     display: block;
     background: rgba(0,0,0,.6);
     position: absolute;
+    margin:1px;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    z-index:3;
     }
   
   }
@@ -614,12 +674,16 @@ $mainGutter: 1.25em;
     -moz-padding-start: 0;
     position: absolute; 
     background: white;
+    background-clip: padding-box;
     padding: $mainGutter/2 0;
     top: $mainGutter/2;
     left: $mainGutter/2;
     margin: 0;
     max-height: 12.5em;
-    overflow-y: scroll;
+    width:240px;
+    overflow:hidden;
+    overflow-y: auto;
+    border:1px solid rgba(0,0,0,0.15);
     z-index: 2;
     li {
       padding-bottom: 0;
@@ -629,8 +693,14 @@ $mainGutter: 1.25em;
         font-size: .875em;
         font-weight: 400;
         max-width: 100%;
-        padding: $mainGutter/8 $mainGutter/2;
-        white-space: pre;
+        padding: $mainGutter/5 $mainGutter/2;
+        white-space: normal;
+        line-height:1.1;
+        -webkit-hyphens: manual;
+      	-moz-hyphens:    manual;
+      	-ms-hyphens:     manual;
+      	hyphens:         manual;
+      	word-wrap: normal;
         &:hover{background: $linkColor;color: white;}
         }
       }
@@ -688,12 +758,21 @@ $mainGutter: 1.25em;
     .webkite-result-modal{
       @include putHere(0);
       max-height: 100%;
-      overflow-y: scroll;
+      overflow: hidden;
+      .inline-filter-menu{
+        width:180px;
+        li{
+          a{padding:$mainGutter/5*2 $mainGutter/2;}
+          }
+        }
       }
     .webkite-modal-block-forty, .webkite-modal-block-sixty{width: 100%; padding: 0;}
     li{b, .facet-values{width: 100%;}}   
     }
-    
+  .webkite-modal-content{
+    overflow:hidden;
+    overflow-y:auto;
+    } 
   }//end xs
   
 #webkite-results.sm{
@@ -720,12 +799,20 @@ $mainGutter: 1.25em;
     .webkite-result-modal{
       @include putHere(0);
       max-height: 100%;
-      overflow-y: scroll;
+      overflow: hidden;
+      .inline-filter-menu{
+        li{
+          a{padding:$mainGutter/5*2 $mainGutter/2;}
+          }
+        }
       }
     .webkite-modal-block-forty, .webkite-modal-block-sixty{width: 100%; padding: 0;}
-     li{b, .facet-values{width: 100%;}} 
+    li{b, .facet-values{width: 100%;}}  
     }
-    
+  .webkite-modal-content{
+    overflow:hidden;
+    overflow-y:auto;
+    }
   }//end sm
   
 #webkite-results.lg, #webkite-results.xl{
