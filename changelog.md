@@ -11,7 +11,7 @@
 
 ###0.1.2
 
-* Updating whick angle image is called for darke theme so icon doesn't appear to be gone
+* Updating which angle image is called for dark theme so icon doesn't appear to be gone
 
 ###0.1.1
 
