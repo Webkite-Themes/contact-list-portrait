@@ -174,9 +174,10 @@ $mainGutter: 1.25em;
     overflow:hidden;
     height:100%;
     text-align: justify;
+   a.webkite-website{@include ellipsisThis;}
    a.webkite-address span{
       display: inline-block;
-      max-width: 100%;
+      width: 100%;
       &.city, &.state{display: inline;}
       }
     .city + .state:before{content: ", ";}
