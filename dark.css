@@ -733,7 +733,7 @@
     -ms-border-radius: 0.188em;
     -o-border-radius: 0.188em;
     border-radius: 0.188em;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     color: rgba(255, 255, 255, 0.7);
     cursor: pointer;
     display: inline-block;
@@ -751,7 +751,7 @@
       width: 10px; }
     #webkite-results .webkite-result-modal li b > .webkite-toggle:hover {
       border: 1px solid rgba(255, 255, 255, 0.1);
-      background: rgba(255, 255, 255, 0.05); }
+      background: rgba(255, 255, 255, 0.1); }
 #webkite-results .webkite-result-modal .inline-filter-menu {
   -webkit-border-radius: 0.375em;
   -moz-border-radius: 0.375em;

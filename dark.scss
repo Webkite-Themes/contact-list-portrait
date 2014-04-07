@@ -277,7 +277,7 @@ $colorVariant:dark;
     > .webkite-toggle{
       @include boxedUp;
       @include roundedUp(.188em);
-      border: 1px solid $lighterOpacity;
+      border: 1px solid rgba(255,255,255,.15);
       color: $lightOpacity;
       cursor: pointer;
       display: inline-block;
@@ -296,7 +296,7 @@ $colorVariant:dark;
         }
       &:hover{
         border: 1px solid $lighterOpacity;
-        background: $lightestOpacity;
+        background: $lighterOpacity;
         }
       }
     }
