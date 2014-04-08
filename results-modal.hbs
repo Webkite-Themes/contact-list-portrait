@@ -11,7 +11,7 @@
     	  <li>
     	    <b>address</b>
           <span class="facet-values">
-            <a target="_blank" href="http://maps.google.com/?q={{#facet name='Address 1'}}{{displayValue}}{{/facet}} {{#facet name='City'}}{{displayValue}}{{/facet}} {{#facet name='State'}}{{displayValue}}{{/facet}} {{#facet name='Zip Code'}}{{displayValue}}{{/facet}} {{#facet name='Country'}}{{displayValue}}{{/facet}}">
+            <a target="_blank" class="webkite-address" href="http://maps.google.com/?q={{#facet name='Address 1'}}{{displayValue}}{{/facet}} {{#facet name='City'}}{{displayValue}}{{/facet}} {{#facet name='State'}}{{displayValue}}{{/facet}} {{#facet name='Zip Code'}}{{displayValue}}{{/facet}} {{#facet name='Country'}}{{displayValue}}{{/facet}}">
             {{#facet name="Address 1"}}<span>{{displayValue}}</span>{{/facet}}
               {{#facet name="Address 2"}}<span>{{displayValue}}</span>{{/facet}}
               <span>{{#facet name="City"}}<span class="city">{{displayValue}}</span>{{/facet}}{{#facet name="State"}}<span class="state">{{displayValue}}</span>{{/facet}}
@@ -43,7 +43,7 @@
           <b>website</b>
           {{#facet name="Website"}}
           <span class="facet-values">
-          <a href="{{displayValue}}">{{displayValue}}</a>
+          <a class="webkite-website" href="{{displayValue}}">{{displayValue}}</a>
           </span>
           {{/facet}}
         </li>

@@ -12,9 +12,7 @@
   {{#each this.items}}
   <div class="webkite-result-wrapper">
     {{#facet name="Image"}}
-    <div class="webkite-result-image">
-      <img src="{{displayValue}}"/>
-    </div>
+    <div class="webkite-result-image" style="background-image:url({{displayValue}});"></div>
     {{/facet}}
     <section class="webkite-result">
       <h2>{{#facet name="First Name"}}{{displayValue}} {{/facet}}{{#facet name="Last Name"}}{{displayValue}}{{/facet}}</h2>
@@ -52,6 +50,6 @@
 </div><!-- webkite-results-container -->
 
 <footer class="webkite-results-footer">
-  <div class="webkite-branding-area"><a href="http://webkite.com"></a></div>
+  <div class="webkite-branding-area"><a></a></div>
   <div class="webkite-pagination-area">{{>paginator pagination}}</div>
 </footer>

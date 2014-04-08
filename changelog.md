@@ -2,6 +2,30 @@
 ---
 ##changelog
 
+###1.0.0
+
+* Head off list-style declarations
+* Update pagination to stay on one line
+* Remove ellipsis behavior from dark theme
+* Remove link to WebKite
+* Enforce new lines in address space
+* Accommodate long URLs
+* Tweaked border color
+* Compress all partials into one
+* Gradient fallback for IE
+* Persistent borders around inline filter buttons
+
+###0.1.3
+
+* Disabled styles for pagination once you've reached the end or are at the beginning of a result set
+* No longer displaying pagination if there's only one page of results
+* Including box-shadow removal and background removal in the reset
+* Styles and markup for the filter overview behavior
+
+###0.1.2
+
+* Updating which angle image is called for dark theme so icon doesn't appear to be gone
+
 ###0.1.1
 
 * Properly wrapping all facet output in checks
