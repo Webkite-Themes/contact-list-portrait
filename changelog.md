@@ -14,6 +14,7 @@
 * Compress all partials into one
 * Gradient fallback for IE
 * Persistent borders around inline filter buttons
+* Tweaked inline filter button colors in modal for dark theme
 
 ###0.1.3
 
