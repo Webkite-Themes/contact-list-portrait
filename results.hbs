@@ -17,12 +17,16 @@
     <section class="webkite-result">
       <h2>{{#facet name="First Name"}}{{displayValue}} {{/facet}}{{#facet name="Last Name"}}{{displayValue}}{{/facet}}</h2>
       <ul>
-    	  <li>
+        <li>
           <a class="webkite-address" target="_blank" href="http://maps.google.com/?q={{#facet name='Address 1'}}{{displayValue}}{{/facet}} {{#facet name='City'}}{{displayValue}}{{/facet}} {{#facet name='State'}}{{displayValue}}{{/facet}} {{#facet name='Zip Code'}}{{displayValue}}{{/facet}} {{#facet name='Country'}}{{displayValue}}{{/facet}}">
-          {{#facet name="Address 1"}}<span>{{displayValue}}</span>{{/facet}}
-          {{#facet name="Address 2"}}<span>{{displayValue}}</span>{{/facet}}
-          <span>{{#facet name="City"}}<span class="city">{{displayValue}}</span>{{/facet}}{{#facet name="State"}}<span class="state">{{displayValue}}</span>{{/facet}}
-          {{#facet name="Zip Code"}}{{displayValue}}{{/facet}}</span>
+            {{#facet name="Address 1"}}<span>{{displayValue}}</span>{{/facet}}
+            {{#facet name="Address 2"}}<span>{{displayValue}}</span>{{/facet}}
+            <span>
+              {{~#facet name="City"}}<span class="city">{{displayValue}}</span>{{/facet}}
+              {{~#facet name="State"}}<span class="state">{{displayValue}}</span>{{/facet}}
+              {{#facet name="Zip Code"}}{{displayValue}}{{/facet~}}
+            </span>
+            {{~#facet name="Country"}}<span>{{displayValue}}</span>{{/facet}}
           </a>
         </li>
         <li>
@@ -31,10 +35,10 @@
         <li>
           {{#facet name="Phone Number"}}<a href="tel:{{displayValue}}">{{displayValue}}</a>{{/facet}}
         </li>
-    	</ul>
-    	
-    	<a href="#{{this.id}}" data-id={{this.id}} class="webkite-toggle-item more-button" data-toggle="modal" data-animate="200ms" data-speed="100ms">more</a>
-  	<footer class="breaking"></footer>
+      </ul>
+      
+      <a href="#{{this.id}}" data-id={{this.id}} class="webkite-toggle-item more-button" data-toggle="modal" data-animate="200ms" data-speed="100ms">more</a>
+    <footer class="breaking"></footer>
     </section>
   </div><!-- webkite-result-wrapper -->
   {{/each}}
