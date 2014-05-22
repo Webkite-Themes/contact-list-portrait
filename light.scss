@@ -148,15 +148,18 @@ $colorVariant:light;
 #webkite-results{
   .webkite-item-details{
     @include boxedUp;
-    margin-left: -$mainGutter;
     max-width: 43.750em;
     padding: $mainGutter;
     position: fixed;
-    top: 0;
-    right:0;
     left:0;
-    margin:auto;
+    right:0;
+    top:50%;
+    margin-left:50%;
+    margin-right:-50%;
     z-index: 999999;
+    -webkit-transform: translateY(-50%) translateX(-50%);
+    -ms-transform: translateY(-50%) translateX(-50%);
+    transform: translateY(-50%) translateX(-50%);
     h2{font: 700 1.5em/1 "Open Sans";}
     }
   .webkite-result-modal{
@@ -167,7 +170,7 @@ $colorVariant:light;
     padding: $mainGutter $mainGutter/5*2 $mainGutter*2 $mainGutter/4*3;
     position:relative;
     overflow:hidden;
-    height:100%;
+    max-height:100%;
     text-align: justify;
    a.webkite-website{@include ellipsisThis;}
    a.webkite-address span{
@@ -181,9 +184,9 @@ $colorVariant:light;
       @include roundedUp(.188em);
       color: white;
       display: inline-block;
-      float: right;
+      vertical-align:top;
       font: 400 .75em/1 "Open Sans";
-      padding: $mainGutter/4 $mainGutter/2;
+      padding: $mainGutter/5 $mainGutter/2;
       text-align: center;
       width: 4.375em;
       background: $lightOpacity;
@@ -191,9 +194,11 @@ $colorVariant:light;
       }
     }
   .webkite-modal-content{
-    height:100%;
+    max-height:62vh;
     padding-right:$mainGutter/5*3;
     padding-left: $mainGutter/4;
+    overflow:hidden;
+    overflow-y:auto;
     }
   .webkite-modal-block-forty, .webkite-modal-block-sixty{
     @include boxedUp;
@@ -242,14 +247,15 @@ $colorVariant:light;
   
   .webkite-modal-foot{
     @include boxedUp;
+    text-align:right;
+    padding:$mainGutter/2;
+    overflow:hidden;    
+    border-top:1px solid $lighterOpacity;
+    height:$mainGutter*2;
     position:absolute;
     right:0;
     bottom:0;
     left:0;
-    padding:$mainGutter/2;
-    overflow:hidden;
-    height:$mainGutter*2;
-    border-top:1px solid rgba(0,0,0,0.1);
     }
     
   /* blocking */
@@ -355,55 +361,41 @@ $colorVariant:light;
     }
   .webkite-result-wrapper{width: 100%;}
   .webkite-item-details{
-    @include putHere(5%);
-    margin: auto;
     max-width: 21.875em;
-    padding: $mainGutter/2;
     .webkite-result-modal{
-      @include putHere(0);
-      max-height: 100%;
-      overflow: hidden;
+      padding-left:$mainGutter/4; 
+      padding-right:$mainGutter/4; 
+      padding-top:$mainGutter/2;
       .inline-filter-menu{
         width:auto;
+        li{
+          a{padding:$mainGutter/5*2 $mainGutter/2;}
+          }
+        }
+      }
+    .webkite-modal-content {
+      padding-right:$mainGutter/4;
+      }
+    .webkite-modal-block-forty, .webkite-modal-block-sixty{width: 100%; padding: 0;}
+    li{b, .facet-values{width: 100%;}}   
+    }
+  }
+  
+#webkite-results.sm{
+  .webkite-result-wrapper{width: 48%;}
+  .webkite-item-details{
+    max-width: 25em;
+    .webkite-result-modal{
+      .inline-filter-menu{
         li{
           a{padding:$mainGutter/5 $mainGutter $mainGutter/5 $mainGutter/2;}
           }
         }
       }
     .webkite-modal-block-forty, .webkite-modal-block-sixty{width: 100%; padding: 0;}
-    li{b, .facet-values{width: 100%;}}   
-    }
-  .webkite-modal-content{
-    overflow:hidden;
-    overflow-y:auto;
-    } 
-  }//end xs
-  
-#webkite-results.sm{
-  .webkite-result-wrapper{width: 48%;}
-  .webkite-item-details{
-    @include putHere(5%);
-    margin: auto;
-    max-width: 25em;
-    padding: $mainGutter/2;
-    .webkite-result-modal{
-      @include putHere(0);
-      max-height: 100%;
-      overflow: hidden;
-      .inline-filter-menu{
-        li{
-          a{padding:$mainGutter/5*2 $mainGutter/2;}
-          }
-        }
-      }
-    .webkite-modal-block-forty, .webkite-modal-block-sixty{width: 100%; padding: 0;}
     li{b, .facet-values{width: 100%;}}  
     }
-  .webkite-modal-content{
-    overflow:hidden;
-    overflow-y:auto;
-    }
-  }//end sm
+  }
   
 #webkite-results.lg, #webkite-results.xl{
   .webkite-result-wrapper{width: 23%;}
