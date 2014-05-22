@@ -339,6 +339,7 @@ $colorVariant:light;
   
   .webkite-no-results{
     padding: $mainGutter 0;
+    margin-bottom:$mainGutter;
     h2{
       margin-bottom: $mainGutter;
       }
@@ -348,34 +349,11 @@ $colorVariant:light;
    
 /************************************** ELEMENT QUERIES */
 #webkite-results.xs{
-  .webkite-block,.webkite-title-area, .webkite-branding-area, .webkite-pagination-area{
+  .webkite-block{
     width: 100%;
     padding-right: 0;
     }
-  .webkite-filter-area, .webkite-sort-area, .webkite-sort-area > .webkite-toggle{
-    width: 100%;
-    }
-  .webkite-sort-area > .webkite-toggle i{
-    float: right; margin-top: $mainGutter/4;
-    }
-  .sort-menu{width: 95%;}
-  .webkite-sort-area+.webkite-filter-area{
-    margin-top: $mainGutter;
-    }
-  .webkite-filter-area{
-    margin-left: 0;
-    padding-left: 0;
-    }
-  .webkite-title-area, .webkite-branding-area, .webkite-pagination-area{
-    text-align: center;
-    }
-   .webkite-result-wrapper{width: 100%;}
-  .webkite-branding-area{
-    padding-bottom: $mainGutter; 
-    }
-  .webkite-results-footer{
-    height: 2.813em*2+$mainGutter;
-    }
+  .webkite-result-wrapper{width: 100%;}
   .webkite-item-details{
     @include putHere(5%);
     margin: auto;
@@ -402,20 +380,6 @@ $colorVariant:light;
   }//end xs
   
 #webkite-results.sm{
-  .webkite-filter-area, .webkite-sort-area, .webkite-sort-area > .webkite-toggle{
-    width: 100%;
-    }
-  .webkite-sort-area > .webkite-toggle i{
-    float: right; margin-top: $mainGutter/4;
-    }
-  .sort-menu{width: 95%;}
-  .webkite-sort-area+.webkite-filter-area{
-    margin-top: $mainGutter;
-    }
-  .webkite-filter-area{
-    margin-left: 0;
-    padding-left: 0;
-    }
   .webkite-result-wrapper{width: 48%;}
   .webkite-item-details{
     @include putHere(5%);
