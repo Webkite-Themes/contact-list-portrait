@@ -8,14 +8,18 @@
       {{/facet}}
       <h2>{{#facet name="First Name"}}{{displayValue}} {{/facet}}{{#facet name="Last Name"}}{{displayValue}}{{/facet}}</h2>
       <ul>
-    	  <li>
-    	    <b>address</b>
+        <li>
+          <b>address</b>
           <span class="facet-values">
             <a target="_blank" class="webkite-address" href="http://maps.google.com/?q={{#facet name='Address 1'}}{{displayValue}}{{/facet}} {{#facet name='City'}}{{displayValue}}{{/facet}} {{#facet name='State'}}{{displayValue}}{{/facet}} {{#facet name='Zip Code'}}{{displayValue}}{{/facet}} {{#facet name='Country'}}{{displayValue}}{{/facet}}">
-            {{#facet name="Address 1"}}<span>{{displayValue}}</span>{{/facet}}
+              {{#facet name="Address 1"}}<span>{{displayValue}}</span>{{/facet}}
               {{#facet name="Address 2"}}<span>{{displayValue}}</span>{{/facet}}
-              <span>{{#facet name="City"}}<span class="city">{{displayValue}}</span>{{/facet}}{{#facet name="State"}}<span class="state">{{displayValue}}</span>{{/facet}}
-              {{#facet name="Zip Code"}}{{displayValue}}{{/facet}}</span>
+              <span>
+                {{~#facet name="City"}}<span class="city">{{displayValue}}</span>{{/facet}}
+                {{~#facet name="State"}}<span class="state">{{displayValue}}</span>{{/facet}}
+                {{#facet name="Zip Code"}}{{displayValue}}{{/facet~}}
+              </span>
+              {{~#facet name="Country"}}<span>{{displayValue}}</span>{{/facet}}
             </a>
           </span>
         </li>
@@ -35,7 +39,7 @@
           </span>
           {{/facet}}
         </li>
-    	</ul>
+      </ul>
     </div><!-- webkite-modal-block-forty -->
     <div class="webkite-modal-block-sixty">
       <ul>
