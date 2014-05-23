@@ -172,6 +172,7 @@ $colorVariant:light;
     overflow:hidden;
     max-height:100%;
     text-align: justify;
+    border:1px solid $lighterOpacity;
    a.webkite-website{@include ellipsisThis;}
    a.webkite-address span{
       display: inline-block;
@@ -345,7 +346,6 @@ $colorVariant:light;
   
   .webkite-no-results{
     padding: $mainGutter 0;
-    margin-bottom:$mainGutter;
     border-bottom: 1px solid $lightestOpacity;
     h2{
       margin-bottom: $mainGutter;

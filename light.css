@@ -678,7 +678,8 @@
     position: relative;
     overflow: hidden;
     max-height: 100%;
-    text-align: justify; }
+    text-align: justify;
+    border: 1px solid rgba(0, 0, 0, 0.1); }
     #webkite-results .webkite-result-modal a.webkite-website {
       display: inline-block;
       max-width: 100%;
@@ -858,7 +859,6 @@
 /******************************************* NO RESULTS */
 #webkite-results .webkite-no-results {
   padding: 20px 0;
-  margin-bottom: 20px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
   #webkite-results .webkite-no-results h2 {
     margin-bottom: 20px; }
