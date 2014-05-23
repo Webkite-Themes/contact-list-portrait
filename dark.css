@@ -52,7 +52,8 @@
     font-size: 100%;
     font: inherit;
     text-transform: none;
-    vertical-align: baseline; }
+    vertical-align: baseline;
+    text-rendering: auto; }
   #webkite-results button, #webkite-results select, #webkite-results input {
     text-transform: none; }
     #webkite-results button:active, #webkite-results select:active, #webkite-results input:active {
@@ -858,7 +859,8 @@
 /******************************************* NO RESULTS */
 #webkite-results .webkite-no-results {
   padding: 20px 0;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
   #webkite-results .webkite-no-results h2 {
     margin-bottom: 20px; }
 
