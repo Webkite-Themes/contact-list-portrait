@@ -345,7 +345,7 @@ $colorVariant:dark;
   
   .webkite-no-results{
     padding: $mainGutter 0;
-    margin-bottom:$mainGutter;
+    border-bottom: 1px solid $lightestOpacity;
     h2{
       margin-bottom: $mainGutter;
       }
