@@ -1,55 +1,60 @@
-{{ log this}}
+{{log this}}
 <header class="webkite-results-header">
   {{>sorts this.sort~}}
   {{>filters this.filters}}
 </header>
 
 <div class="webkite-results-container">
-{{#if items.length}}
-{{#each this.items}}
-<div id="{{this.id}}" class="webkite-item-details webkite-modal">{{>results-modal}}</div>
-{{/each}}
-  {{#each this.items}}
-  <div class="webkite-result-wrapper">
-    {{#facet name="Image"}}
-    <div class="webkite-result-image" style="background-image:url({{displayValue}});"></div>
-    {{/facet}}
-    <section class="webkite-result">
-      <h2>{{#facet name="First Name"}}{{displayValue}} {{/facet}}{{#facet name="Last Name"}}{{displayValue}}{{/facet}}</h2>
-      <ul>
-        <li>
-          <a class="webkite-address" target="_blank" href="http://maps.google.com/?q={{#facet name='Address 1'}}{{displayValue}}{{/facet}} {{#facet name='City'}}{{displayValue}}{{/facet}} {{#facet name='State'}}{{displayValue}}{{/facet}} {{#facet name='Zip Code'}}{{displayValue}}{{/facet}} {{#facet name='Country'}}{{displayValue}}{{/facet}}">
-            {{#facet name="Address 1"}}<span>{{displayValue}}</span>{{/facet}}
-            {{#facet name="Address 2"}}<span>{{displayValue}}</span>{{/facet}}
-            <span>
-              {{~#facet name="City"}}<span class="city">{{displayValue}}</span>{{/facet}}
-              {{~#facet name="State"}}<span class="state">{{displayValue}}</span>{{/facet}}
-              {{#facet name="Zip Code"}}{{displayValue}}{{/facet~}}
-            </span>
-            {{~#facet name="Country"}}<span>{{displayValue}}</span>{{/facet}}
-          </a>
-        </li>
-        <li>
-          {{#facet name="Email"}}<a class="webkite-email" href="mailto:{{displayValue}}">{{displayValue}}</a>{{/facet}}
-        </li>
-        <li>
-          {{#facet name="Phone Number"}}<a href="tel:{{displayValue}}">{{displayValue}}</a>{{/facet}}
-        </li>
-      </ul>
-      
-      <a href="#{{this.id}}" data-id={{this.id}} class="webkite-toggle-item more-button" data-toggle="modal" data-animate="200ms" data-speed="100ms">more</a>
-    <footer class="breaking"></footer>
+  {{#if items.length}}
+    {{#each this.items}}
+      <div id="{{this.id}}" class="webkite-item-details webkite-modal">{{>results-modal}}</div>
+    {{/each}}
+    {{#each this.items}}
+      <div class="webkite-result-wrapper">
+        {{#facet name="Image"}}<div class="webkite-result-image" style="background-image:url({{displayValue}});"></div>{{/facet}}
+        <section class="webkite-result">
+          {{#any (find facets name="First Name") (find facets name="Last Name")~}}
+            <h2>{{#facet name="First Name"}}{{displayValue}} {{/facet}}{{#facet name="Last Name"}}{{displayValue}}{{/facet}}</h2>
+          {{~/any}}
+          <ul>
+            {{#any (find facets name="Address 1") (find facets name="City") (find facets name="State") (find facets name="Zip Code") (find facets name="Country") (find facets name="Address 2")}}
+              <li>
+                <a class="webkite-address" target="_blank" href="http://maps.google.com/?q={{#facet name='Address 1'}}{{displayValue}}{{/facet}} {{#facet name='City'}}{{displayValue}}{{/facet}} {{#facet name='State'}}{{displayValue}}{{/facet}} {{#facet name='Zip Code'}}{{displayValue}}{{/facet}} {{#facet name='Country'}}{{displayValue}}{{/facet}}">
+                  {{#facet name="Address 1"}}<span>{{displayValue}}</span>{{/facet}}
+                  {{#facet name="Address 2"}}<span>{{displayValue}}</span>{{/facet}}
+                  <span>
+                    {{~#facet name="City"}}<span class="city">{{displayValue}}</span>{{/facet}}
+                    {{~#facet name="State"}}<span class="state">{{displayValue}}</span>{{/facet}}
+                    {{#facet name="Zip Code"}}{{displayValue}}{{/facet~}}
+                  </span>
+                  {{~#facet name="Country"}}<span>{{displayValue}}</span>{{/facet}}
+                </a>
+              </li>
+            {{/any}}
+            {{#facet name="Email"}}
+              <li>
+                <a class="webkite-email" href="mailto:{{displayValue}}">{{displayValue}}</a>
+              </li>
+            {{/facet}}
+            {{#facet name="Phone Number"}}
+              <li>
+                <a href="tel:{{displayValue}}">{{displayValue}}</a>
+              </li>
+            {{/facet}}
+          </ul>
+          <a href="#{{this.id}}" data-id={{this.id}} class="webkite-toggle-item more-button" data-toggle="modal" data-animate="200ms" data-speed="100ms">more</a>
+        <footer class="breaking"></footer>
+        </section>
+      </div><!-- webkite-result-wrapper -->
+    {{/each}}
+    <div class="webkite-result-wrapper placeholder"></div>
+    <div class="webkite-result-wrapper placeholder only-lg"></div>
+  {{else}}
+    <section class="webkite-no-results">
+      <h2>Sorry, no results</h2>
+      <p>There are no results to display based on the selected filters. Try removing a filter to see more results.</p>
     </section>
-  </div><!-- webkite-result-wrapper -->
-  {{/each}}
-  <div class="webkite-result-wrapper placeholder"></div>
-  <div class="webkite-result-wrapper placeholder only-lg"></div>
-{{else}}
-<section class="webkite-no-results">
-  <h2>Sorry, no results</h2>
-  <p>There are no results to display based on the selected filters. Try removing a filter to see more results.</p>
-</section>
-{{/if}}
+  {{/if}}
 </div><!-- webkite-results-container -->
 
 <footer class="webkite-results-footer">
